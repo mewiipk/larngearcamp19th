@@ -1,13 +1,13 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import './styles/App.scss';
+import './App.css';
+import HomePage from './pages/Index'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>Larngear Camp 19th is coming . . .</p>
-      </header>
+      <HomePage />
     </div>
   );
 }
