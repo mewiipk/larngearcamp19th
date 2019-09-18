@@ -4,20 +4,34 @@ import { NavLink } from 'react-router-dom';
 function Header() {
   return (
     <React.Fragment>
-      <div className="header container">
-        <div className="d-flex justify-content-between">
-          <NavLink className="page-link" to="/">
-            Home
-          </NavLink>
-          <NavLink className="page-link" to="/project">
-            Project
-          </NavLink>
-          <NavLink className="page-link" to="/knowledge">
-            Knowledge
-          </NavLink>
-          <NavLink className="page-link" to="/question">
-            Question
-          </NavLink>
+      <div className="header">
+        <div className="container">
+          <div className="d-flex justify-content-between">
+            <NavLink
+              className="page-link border-0 font-montserrat-semi-bold text-white"
+              to="/"
+            >
+              Home
+            </NavLink>
+            <NavLink
+              className="page-link border-0 font-montserrat-semi-bold text-white"
+              to="/register"
+            >
+              Register
+            </NavLink>
+            <NavLink
+              className="page-link border-0 font-montserrat-semi-bold text-white"
+              to="/QandA"
+            >
+              Q&A
+            </NavLink>
+            <NavLink
+              className="page-link border-0 font-montserrat-semi-bold text-white"
+              to="/contact"
+            >
+              Contact
+            </NavLink>
+          </div>
         </div>
       </div>
     </React.Fragment>

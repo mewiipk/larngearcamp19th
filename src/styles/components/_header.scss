@@ -1,0 +1,12 @@
+.header {
+  background-color: $dark-grey;
+  .page-link {
+    background: none;
+    &:hover {
+      box-shadow: none;
+    }
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}
