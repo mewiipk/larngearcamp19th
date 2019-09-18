@@ -81,3 +81,12 @@
 p {
   margin: 0;
 }
+
+button {
+  &:hover {
+  box-shadow: none;
+}
+&:focus {
+  box-shadow: none;
+}
+}

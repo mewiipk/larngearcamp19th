@@ -1,0 +1,141 @@
+.home-page {
+    .first-container{
+        padding-bottom: 60px;
+    }
+
+    background-color: $grey;
+    h1 {
+        text-align: center;
+        padding-top: 100px;
+        font-family: 'Montserrat-ExtraLight';
+        color: white;
+    }
+
+    h1::first-letter{
+        font-size: 60px;
+        padding: 4px;
+    }
+
+    p{
+        font-family: 'Prompt-Light';
+        color: $light-grey;
+        margin-bottom: 20px;
+    }
+
+    button{
+        margin: 20px;
+        padding: 10px 40px;
+        background-color: $red;
+        border-radius: 30em;
+        color: white;
+        font-family: 'Montserrat';
+        border-color: $red;
+        border-width: 2px;
+        letter-spacing: 2px;
+        transition: 0.2s;
+        &:hover{
+            background-color: white;
+            border-color: white;
+            color: $red;
+            font-family: 'Montserrat-SemiBold';
+        }
+    }
+
+}
+
+.about-container{
+    display: flex;
+    width: 200%;
+    height: 350px;
+}
+
+.left-half{
+    height: 350px;
+    background-color: white;
+    position: absolute;
+    width: 50%;
+    left: 0px;
+    h3{
+        font-family: 'Montserrat';
+        color: $dark-grey;
+        padding-left: 20px;
+        text-align: left;
+        padding-bottom: 10px;
+    }
+    p{
+        font-family: 'CSPraJad';
+        color: $grey;
+        padding-left: 30px;
+        padding-right: 20px;
+        text-align: left;
+    }
+}
+
+.right-half {
+    height: 350px;
+    background-color: $light-red;
+    position: absolute;
+    right: 0px;
+    width: 50%;
+
+  }
+
+.right-half img {
+    size: 50%;
+    height: 350px;
+}
+
+article {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    padding: 20px;
+}
+
+.requirement{
+    padding: 20px;
+    background-color: $light-grey;
+    h3{
+        font-family: 'Prompt-Medium';
+        padding: 20px;
+    }
+    .require{
+        margin: 0px 20px;
+        display: flex;
+        flex-flow: row;
+        .req1{
+            width: 25%;
+            margin: 0px 5px;
+        }
+        .req2{
+            width: 25%;
+            margin: 0px 5px;
+        }
+        .req3{
+            width: 25%;
+            margin: 0px 5px;
+        }
+        .req4{
+            width: 25%;
+            margin: 0px 5px;
+        }
+        p{
+            color: black;
+            font-family: 'CSPraJad';
+            height: 50px;
+        }
+        img{
+            width: 100px;
+        }
+    }
+    
+}
+
+.timeline{
+    background-color: $red;
+    height: 400px;
+}
+  
+
