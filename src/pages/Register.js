@@ -77,7 +77,12 @@ function RegisterPage(props) {
             {(() => {
               switch (props.auth.register_status) {
                 case REGISTER_STATUS.INIT:
-                  return <RegisterPhase />;
+                  return (
+                    <RegisterPhase
+                      auth={props.auth}
+                      register={props.register}
+                    />
+                  );
 
                 case REGISTER_STATUS.UPLOAD:
                   return <div>Upload</div>;

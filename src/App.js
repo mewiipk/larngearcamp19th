@@ -9,12 +9,10 @@ import * as actions from './actions';
 import HomePage from './pages/Index';
 import RegisterPage from './pages/Register';
 import QandAPage from './pages/Q&A';
-import ContactPage from './pages/Contact';
 import Header from './components/Header';
 import firebase from './Firebase';
 
 function App(props) {
-  console.log(props);
   const [isLogin, setLogin] = useState(false);
   useEffect(() => {
     firebase.auth().onAuthStateChanged(user => {
@@ -45,7 +43,6 @@ function App(props) {
           render={() => <RegisterPage isLogin={isLogin} />}
         />
         <Route path="/questions" render={() => <QandAPage />} />
-        <Route path="/contact" render={() => <ContactPage />} />
       </Switch>
     </div>
   );

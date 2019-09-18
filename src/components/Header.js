@@ -25,12 +25,6 @@ function Header() {
             >
               Q&A
             </NavLink>
-            <NavLink
-              className="page-link border-0 font-montserrat-semi-bold text-white"
-              to="/contact"
-            >
-              Contact
-            </NavLink>
           </div>
         </div>
       </div>

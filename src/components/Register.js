@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Checkbox, Input, Select, DatePicker } from 'antd';
+import * as moment from 'moment';
 
 const { TextArea } = Input;
 
@@ -115,10 +116,52 @@ function PreDetail({ setRead }) {
   );
 }
 
-function RegisterForm() {
+function RegisterForm({ auth, register }) {
+  const [isLoading, setLoading] = useState(false);
+  const [info, setInfo] = useState({
+    prefix: null,
+    firstName: null,
+    lastName: null,
+    nickName: null,
+    personalID: null,
+    birthday: null,
+    address: null,
+    province: null,
+    postcode: null,
+    phone: null,
+    bloodType: null,
+    religion: null,
+    schoolYear: null,
+    school: null,
+    schoolProvince: null,
+    facebook: null,
+    line: null,
+    contactEmail: null,
+    emergencyName: null,
+    emergencyPhone: null,
+    emergencyRelationship: null,
+    knowFrom: {
+      facebook: false,
+      twitter: false,
+      camphub: false,
+      school: false,
+      tutor: false,
+      friend: false,
+      other: false
+    },
+    foodAllergic: null,
+    drugAllergic: null
+  });
+  console.log(info);
   const onSubmit = e => {
     e.preventDefault();
+    setLoading(true);
+    register({
+      info: { ...info, birthday: moment(info.birthday).format('DD/MM/YYYY') },
+      user: auth
+    });
     console.log('submit!');
+    setLoading(false);
   };
   return (
     <React.Fragment>
@@ -129,9 +172,13 @@ function RegisterForm() {
             <p>
               คำนำหน้าชื่อ<span>*</span>
             </p>
-            <Select className="form-input">
-              <Select.Option value="Mr.">นาย / Mr.</Select.Option>
-              <Select.Option value="Ms.">นางสาว / Ms.</Select.Option>
+            <Select
+              value={info.prefix}
+              onChange={value => setInfo({ ...info, prefix: value })}
+              className="form-input"
+            >
+              <Select.Option value="Mr">นาย / Mr.</Select.Option>
+              <Select.Option value="Ms">นางสาว / Ms.</Select.Option>
               <Select.Option value="Master">เด็กชาย / Master</Select.Option>
               <Select.Option value="Miss">เด็กหญิง / Miss</Select.Option>
             </Select>
@@ -140,43 +187,73 @@ function RegisterForm() {
             <p>
               ชื่อจริง<span>*</span>
             </p>
-            <Input className="form-input" />
+            <Input
+              value={info.firstName}
+              onChange={e => setInfo({ ...info, firstName: e.target.value })}
+              className="form-input"
+            />
           </label>
           <label className="form-item">
             <p>
               นามสกุล<span>*</span>
             </p>
-            <Input className="form-input" />
+            <Input
+              value={info.lastName}
+              onChange={e => setInfo({ ...info, lastName: e.target.value })}
+              className="form-input"
+            />
           </label>
           <label className="form-item">
             <p>
               ชื่อเล่น<span>*</span>
             </p>
-            <Input className="form-input" />
+            <Input
+              value={info.nickName}
+              onChange={e => setInfo({ ...info, nickName: e.target.value })}
+              className="form-input"
+            />
           </label>
           <label className="form-item">
             <p>
               เลขประจำตัวประชาชน<span>*</span>
             </p>
-            <Input pattern="\d*" className="form-input" />
+            <Input
+              value={info.personalID}
+              onChange={e => setInfo({ ...info, personalID: e.target.value })}
+              pattern="\d*"
+              className="form-input"
+            />
           </label>
           <label className="form-item">
             <p>
               วันเกิด<span>*</span>
             </p>
-            <DatePicker className="form-input" />
+            <DatePicker
+              value={info.birthday}
+              onChange={date => setInfo({ ...info, birthday: date })}
+              className="form-input"
+            />
           </label>
           <label className="form-item">
             <p>
               ที่อยู่บ้าน<span>*</span>
             </p>
-            <TextArea row={2} className="form-input" />
+            <TextArea
+              value={info.address}
+              onChange={e => setInfo({ ...info, address: e.target.value })}
+              row={2}
+              className="form-input"
+            />
           </label>
           <label className="form-item">
             <p>
               จังหวัด<span>*</span>
             </p>
-            <Select className="form-input">
+            <Select
+              value={info.province}
+              onChange={value => setInfo({ ...info, province: value })}
+              className="form-input"
+            >
               {province_th.map((province, i) => {
                 return (
                   <Select.Option key={i} value={province}>
@@ -190,19 +267,33 @@ function RegisterForm() {
             <p>
               รหัสไปรษณีย์<span>*</span>
             </p>
-            <Input pattern="\d*" className="form-input" />
+            <Input
+              value={info.postcode}
+              onChange={e => setInfo({ ...info, postcode: e.target.value })}
+              pattern="\d*"
+              className="form-input"
+            />
           </label>
           <label className="form-item">
             <p>
               เบอร์โทรศัพท์<span>*</span>
             </p>
-            <Input pattern="\d*" className="form-input" />
+            <Input
+              value={info.phone}
+              onChange={e => setInfo({ ...info, phone: e.target.value })}
+              pattern="\d*"
+              className="form-input"
+            />
           </label>
           <label className="form-item">
             <p>
               กรุ๊ปเลือด<span>*</span>
             </p>
-            <Select className="form-input">
+            <Select
+              value={info.bloodType}
+              onChange={value => setInfo({ ...info, bloodType: value })}
+              className="form-input"
+            >
               <Select.Option value="A">A</Select.Option>
               <Select.Option value="B">B</Select.Option>
               <Select.Option value="AB">AB</Select.Option>
@@ -213,13 +304,21 @@ function RegisterForm() {
             <p>
               ศาสนา<span>*</span>
             </p>
-            <Input className="form-input" />
+            <Input
+              value={info.religion}
+              onChange={e => setInfo({ ...info, religion: e.target.value })}
+              className="form-input"
+            />
           </label>
           <label className="form-item">
             <p>
               ชั้นปี<span>*</span>
             </p>
-            <Select className="form-input">
+            <Select
+              value={info.schoolYear}
+              onChange={value => setInfo({ ...info, schoolYear: value })}
+              className="form-input"
+            >
               <Select.Option value="ม.5">ม.5</Select.Option>
               <Select.Option value="ม.6">ม.6</Select.Option>
               <Select.Option value="ปวช. ปี 1">ปวช. ปี 1</Select.Option>
@@ -230,13 +329,21 @@ function RegisterForm() {
             <p>
               โรงเรียน<span>*</span>
             </p>
-            <Input className="form-input" />
+            <Input
+              value={info.school}
+              onChange={e => setInfo({ ...info, school: e.target.value })}
+              className="form-input"
+            />
           </label>
           <label className="form-item">
             <p>
               จังหวัดโรงเรียน<span>*</span>
             </p>
-            <Select className="form-input">
+            <Select
+              value={info.schoolProvince}
+              onChange={value => setInfo({ ...info, schoolProvince: value })}
+              className="form-input"
+            >
               {province_th.map((province, i) => {
                 return (
                   <Select.Option key={i} value={province}>
@@ -250,35 +357,66 @@ function RegisterForm() {
             <p>
               Facebook<span>*</span>
             </p>
-            <Input className="form-input" />
+            <Input
+              value={info.facebook}
+              onChange={e => setInfo({ ...info, facebook: e.target.value })}
+              className="form-input"
+            />
           </label>
           <label className="form-item">
             <p>Line</p>
-            <Input className="form-input" />
+            <Input
+              value={info.line}
+              onChange={e => setInfo({ ...info, line: e.target.value })}
+              className="form-input"
+            />
           </label>
           <label className="form-item">
             <p>
               E-mail<span>*</span>
             </p>
-            <Input className="form-input" />
+            <Input
+              value={info.contactEmail}
+              onChange={e => setInfo({ ...info, contactEmail: e.target.value })}
+              className="form-input"
+            />
           </label>
           <label className="form-item">
             <p>
               ชื่อ-นามสกุลผู้ติดต่อฉุกเฉิน<span>*</span>
             </p>
-            <Input className="form-input" />
+            <Input
+              value={info.emergencyName}
+              onChange={e =>
+                setInfo({ ...info, emergencyName: e.target.value })
+              }
+              className="form-input"
+            />
           </label>
           <label className="form-item">
             <p>
               เบอร์โทรศัพท์ผู้ติดต่อฉุกเฉิน<span>*</span>
             </p>
-            <Input pattern="\d*" className="form-input" />
+            <Input
+              value={info.emergencyPhone}
+              onChange={e =>
+                setInfo({ ...info, emergencyPhone: e.target.value })
+              }
+              pattern="\d*"
+              className="form-input"
+            />
           </label>
           <label className="form-item">
             <p>
               ความสัมพันธ์<span>*</span>
             </p>
-            <Input className="form-input" />
+            <Input
+              value={info.emergencyRelationship}
+              onChange={e =>
+                setInfo({ ...info, emergencyRelationship: e.target.value })
+              }
+              className="form-input"
+            />
           </label>
           <label className="form-item">
             <p>
@@ -286,44 +424,115 @@ function RegisterForm() {
             </p>
             <div className="checkbox-col">
               <label className="checked-row">
-                <Checkbox className="checkbox" />
+                <Checkbox
+                  checked={info.knowFrom.facebook}
+                  onChange={e =>
+                    setInfo({
+                      ...info,
+                      knowFrom: { ...info.knowFrom, facebook: e.target.checked }
+                    })
+                  }
+                  className="checkbox"
+                />
                 <p>Facebook</p>
               </label>
               <label className="checked-row">
-                <Checkbox className="checkbox" />
+                <Checkbox
+                  checked={info.knowFrom.twitter}
+                  onChange={e =>
+                    setInfo({
+                      ...info,
+                      knowFrom: { ...info.knowFrom, twitter: e.target.checked }
+                    })
+                  }
+                  className="checkbox"
+                />
                 <p>Twitter</p>
               </label>
               <label className="checked-row">
-                <Checkbox className="checkbox" />
+                <Checkbox
+                  checked={info.knowFrom.camphub}
+                  onChange={e =>
+                    setInfo({
+                      ...info,
+                      knowFrom: { ...info.knowFrom, camphub: e.target.checked }
+                    })
+                  }
+                  className="checkbox"
+                />
                 <p>Camphub.in.th</p>
               </label>
               <label className="checked-row">
-                <Checkbox className="checkbox" />
+                <Checkbox
+                  checked={info.knowFrom.school}
+                  onChange={e =>
+                    setInfo({
+                      ...info,
+                      knowFrom: { ...info.knowFrom, school: e.target.checked }
+                    })
+                  }
+                  className="checkbox"
+                />
                 <p>โรงเรียน</p>
               </label>
               <label className="checked-row">
-                <Checkbox className="checkbox" />
+                <Checkbox
+                  checked={info.knowFrom.tutor}
+                  onChange={e =>
+                    setInfo({
+                      ...info,
+                      knowFrom: { ...info.knowFrom, tutor: e.target.checked }
+                    })
+                  }
+                  className="checkbox"
+                />
                 <p>สถาบันกวดวิชา</p>
               </label>
               <label className="checked-row">
-                <Checkbox className="checkbox" />
+                <Checkbox
+                  checked={info.knowFrom.friend}
+                  onChange={e =>
+                    setInfo({
+                      ...info,
+                      knowFrom: { ...info.knowFrom, friend: e.target.checked }
+                    })
+                  }
+                  className="checkbox"
+                />
                 <p>เพื่อน</p>
               </label>
               <label className="checked-row">
-                <Checkbox className="checkbox" />
+                <Checkbox
+                  checked={info.knowFrom.other}
+                  onChange={e =>
+                    setInfo({
+                      ...info,
+                      knowFrom: { ...info.knowFrom, other: e.target.checked }
+                    })
+                  }
+                  className="checkbox"
+                />
                 <p>อื่น ๆ</p>
               </label>
             </div>
           </label>
           <label className="form-item">
             <p>อาหารที่แพ้</p>
-            <Input className="form-input" />
+            <Input
+              value={info.foodAllergic}
+              onChange={e => setInfo({ ...info, foodAllergic: e.target.value })}
+              className="form-input"
+            />
           </label>
           <label className="form-item">
             <p>ยาที่แพ้</p>
-            <Input className="form-input" />
+            <Input
+              value={info.drugAllergic}
+              onChange={e => setInfo({ ...info, drugAllergic: e.target.value })}
+              className="form-input"
+            />
           </label>
-          <button className="register-btn" type="submit">
+          <button disabled={isLoading} className="register-btn" type="submit">
             สมัคร
           </button>
         </form>
@@ -332,11 +541,15 @@ function RegisterForm() {
   );
 }
 
-function RegisterPhase() {
+function RegisterPhase({ auth, register }) {
   const [isRead, setRead] = useState(false);
   return (
     <React.Fragment>
-      {isRead ? <RegisterForm /> : <PreDetail setRead={setRead} />}
+      {isRead ? (
+        <RegisterForm auth={auth} register={register} />
+      ) : (
+        <PreDetail setRead={setRead} />
+      )}
     </React.Fragment>
   );
 }
