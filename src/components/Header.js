@@ -21,7 +21,7 @@ function Header() {
             </NavLink>
             <NavLink
               className="page-link border-0 font-montserrat-semi-bold text-white"
-              to="/QandA"
+              to="/questions"
             >
               Q&A
             </NavLink>

@@ -1,0 +1,76 @@
+.pre-detail-container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  .checked-row {
+    display: flex;
+    align-items: center;
+    .checkbox {
+      margin-right: 5px;
+      .ant-checkbox-input:focus + .ant-checkbox-inner {
+        border-color: $red;
+      }
+      &:hover,
+      &:focus {
+        .ant-checkbox-inner {
+          border-color: $red !important;
+        }
+      }
+      .ant-checkbox-checked {
+        &::after {
+          border-color: $red;
+        }
+        .ant-checkbox-inner {
+          border-color: $red;
+          background-color: $red;
+        }
+        &:hover,
+        &:focus {
+          .ant-checkbox-inner {
+            border-color: $red;
+          }
+        }
+      }
+    }
+  }
+  .warning {
+    color: $red;
+  }
+  .register-btn {
+    margin-top: 20px;
+    padding: 10px 40px;
+    background-color: $red;
+    border-radius: 30em;
+    color: white;
+    font-family: 'Montserrat';
+    border-color: $red;
+    border-width: 2px;
+    letter-spacing: 2px;
+    transition: 0.2s;
+    &:hover {
+      background-color: white;
+      color: $red;
+      font-family: 'Montserrat-SemiBold';
+    }
+  }
+}
+
+.register-form-container {
+  .form-item {
+    display: flex;
+    align-items: center;
+    p {
+      flex: 1;
+    }
+    .form-input {
+      flex: 2;
+      &.ant-input {
+        &:hover,
+        &:focus {
+          box-shadow: none;
+          border-color: $red;
+        }
+      }
+    }
+  }
+}

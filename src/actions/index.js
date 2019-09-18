@@ -10,6 +10,16 @@ export const getUser = user => async dispatch => {
       });
     } else {
       console.log('No data');
+      const data = {
+        uid: user.uid,
+        email: user.email,
+        register_status: 0
+      };
+      userRef.set(data);
+      dispatch({
+        type: 'LOGIN',
+        payload: data
+      });
     }
   });
 };

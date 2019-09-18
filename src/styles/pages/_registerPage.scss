@@ -1,4 +1,9 @@
 .register-page {
+  height: calc(100vh - 36px);
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: space-between;
   .login-btn {
     margin: 10px 0;
     background-color: $fb;
@@ -28,6 +33,23 @@
 
     p {
       color: white;
+    }
+  }
+  .logout-btn {
+    margin: 20px;
+    padding: 10px 40px;
+    background-color: transparent;
+    border-radius: 30em;
+    color: $red;
+    font-family: 'Montserrat';
+    border-color: $red;
+    border-width: 2px;
+    letter-spacing: 2px;
+    transition: 0.2s;
+    &:hover {
+      background-color: $red;
+      color: white;
+      font-family: 'Montserrat-SemiBold';
     }
   }
 }
