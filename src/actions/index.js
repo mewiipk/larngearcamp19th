@@ -2,7 +2,7 @@ import firebase, { db } from '../Firebase';
 
 export const getUser = user => async dispatch => {
   let userRef = db.collection('user').doc(user.uid);
-  userRef.get().then(doc => {
+  await userRef.get().then(doc => {
     if (doc.exists) {
       dispatch({
         type: 'LOGIN',
