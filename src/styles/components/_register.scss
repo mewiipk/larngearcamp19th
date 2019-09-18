@@ -56,11 +56,42 @@
 }
 
 .register-form-container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  width: 100%;
+  form {
+    min-width: 500px;
+    display: flex;
+    flex-flow: column;
+    @media (max-width: $screen-xs-max) {
+      min-width: calc(100% - 40px);
+    }
+  }
   .form-item {
     display: flex;
-    align-items: center;
+    flex-flow: column;
+    margin-bottom: 16px;
+    // @media (max-width: $screen-sm-max) {
+    //   flex-flow: column;
+    // }
+    align-items: flex-start;
     p {
+      // @media (max-width: $screen-sm-max) {
+      //   text-align: left;
+      //   width: 100%;
+      //   margin: 0;
+      // }
+      font-family: 'CSPraJad-Bold';
+      text-align: left;
+      width: 100%;
+      margin: 0;
       flex: 1;
+      // text-align: right;
+      // margin-right: 10px;
+      span {
+        color: red;
+      }
     }
     .form-input {
       flex: 2;
@@ -71,6 +102,110 @@
           border-color: $red;
         }
       }
+      .ant-select-selection {
+        &:hover,
+        &:focus {
+          border-color: $red;
+          box-shadow: none;
+        }
+      }
+      &.ant-calendar-picker:hover
+        .ant-calendar-picker-input:not(.ant-input-disabled) {
+        border-color: $red;
+      }
+      &.ant-calendar-picker:focus
+        .ant-calendar-picker-input:not(.ant-input-disabled) {
+        border-color: $red;
+        box-shadow: none;
+      }
+      .ant-input {
+        &:hover,
+        &:focus {
+          box-shadow: none;
+          border-color: $red;
+        }
+      }
+    }
+    .checkbox-col {
+      display: flex;
+      flex-flow: column;
+      align-items: flex-start;
+      margin-left: 10px;
+      margin-top: 5px;
+      .checked-row {
+        display: flex;
+        align-items: center;
+        .checkbox {
+          margin-right: 5px;
+          .ant-checkbox-input:focus + .ant-checkbox-inner {
+            border-color: $red;
+          }
+          &:hover,
+          &:focus {
+            .ant-checkbox-inner {
+              border-color: $red !important;
+            }
+          }
+          .ant-checkbox-checked {
+            &::after {
+              border-color: $red;
+            }
+            .ant-checkbox-inner {
+              border-color: $red;
+              background-color: $red;
+            }
+            &:hover,
+            &:focus {
+              .ant-checkbox-inner {
+                border-color: $red;
+              }
+            }
+          }
+        }
+      }
     }
   }
+  .register-btn {
+    align-self: center;
+    margin-top: 20px;
+    padding: 10px 40px;
+    background-color: $red;
+    border-radius: 30em;
+    color: white;
+    font-family: 'Montserrat';
+    border-color: $red;
+    border-width: 2px;
+    letter-spacing: 2px;
+    transition: 0.2s;
+    &:hover {
+      background-color: white;
+      color: $red;
+      font-family: 'Montserrat-SemiBold';
+    }
+  }
+}
+
+.ant-select-dropdown {
+  .ant-select-dropdown-menu-item:hover:not(.ant-select-dropdown-menu-item-disabled) {
+    background-color: rgba($light-red, 0.8);
+  }
+  .ant-select-dropdown-menu-item-active:not(.ant-select-dropdown-menu-item-disabled) {
+    background-color: rgba($light-red, 0.8);
+  }
+}
+.ant-calendar-selected-day .ant-calendar-date {
+  background-color: rgba($light-red, 0.8);
+}
+
+.ant-calendar-today .ant-calendar-date {
+  color: $red;
+  border-color: $red;
+}
+
+.ant-calendar-selected-day .ant-calendar-date {
+  background: rgba($light-red, 0.8);
+}
+
+.ant-calendar-date:hover {
+  background: rgba($light-red, 0.5);
 }
