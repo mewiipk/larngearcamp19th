@@ -17,9 +17,11 @@ function App(props) {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         // User is signed in.
+        console.log('sign in');
         const { uid, email } = user.providerData[0];
         const a = props.getUser({ uid, email });
         a.then(() => {
+          console.log('get user');
           setLogin(true);
         });
       } else {

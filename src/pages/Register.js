@@ -49,8 +49,9 @@ function RegisterPage(props) {
   useEffect(() => {
     facebookGetRedirectResult(props.getUser);
   }, []);
-
+  console.log(props);
   if (!props.isLogin) return <div />;
+
   return (
     <React.Fragment>
       <div className="register-page">
