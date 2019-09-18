@@ -57,7 +57,7 @@ function HomePage() {
         <div className = "timeline">
 
         </div>
-        
+
       </div>
   
 
