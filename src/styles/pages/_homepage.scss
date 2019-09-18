@@ -1,11 +1,11 @@
 .home-page {
   .first-container {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
     padding-bottom: 60px;
-  }
-
-  background-color: $grey;
+    background-color: $grey;
   h1 {
-    text-align: center;
     padding-top: 100px;
     font-family: 'Montserrat-ExtraLight';
     color: white;
@@ -40,6 +40,8 @@
       font-family: 'Montserrat-SemiBold';
     }
   }
+  }
+
 }
 
 .about-container {
@@ -103,7 +105,11 @@
   }
 }
 
-.requirement {
+.requirement-container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+
   padding: 20px;
   background-color: $light-grey;
   h3 {
@@ -111,37 +117,205 @@
     padding: 20px;
   }
   .require {
+    @media (max-width: $screen-sm-max){
+      flex-flow: column;
+    }
     margin: 0px 20px;
     display: flex;
     flex-flow: row;
-    .req1 {
-      width: 25%;
+    .req {
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      flex: 1;
       margin: 0px 5px;
     }
-    .req2 {
-      width: 25%;
-      margin: 0px 5px;
-    }
-    .req3 {
-      width: 25%;
-      margin: 0px 5px;
-    }
-    .req4 {
-      width: 25%;
-      margin: 0px 5px;
-    }
+    
     p {
       color: black;
       font-family: 'CSPraJad';
-      height: 50px;
+      margin-bottom: 40px;
+      text-align: center;
     }
     img {
       width: 100px;
+      margin-bottom: 20px;
     }
   }
 }
 
-.timeline {
+.timeline-container {
   background-color: $red;
   height: 400px;
+  padding: 50px;
+  padding-left: 150px;
+  position: relative;
+  @media (max-width: $screen-xs-max) {padding-left: 80px}
+
+  .timeline-title{
+    transform: rotate(-90deg);
+    left:-174px;
+    top: 134px;
+    position: absolute;
+    color:white;
+    font-family: 'Montserrat-ExtraLight';
+    font-size: 84px;
+  }
+
+  .timeline-line {
+    height: 300px;
+    border-left: 2px solid white;
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    .phase {
+      padding-left: 30px;
+      @media (max-width: $screen-xs-max) {padding-left: 15px}
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 100%;
+
+      &:hover {
+        .detail {
+           opacity: 1;
+           transition: opacity 0.3s ease;
+           background-color: white;
+           color: $red;
+        }
+
+        .circle {
+          transform: scale(1.25);
+      }
+        .date{
+          font-size: 20px;
+          @media (max-width: $screen-xs-max) {font-size: 13px}
+          transition: font-size 0.3s ease;
+        }
+     }
+
+      .date{
+        font-size: 18px;
+        @media (max-width: $screen-xs-max) {font-size: 12px}
+        font-family: 'Prompt-Medium';
+        transition: font-size 0.3s ease;
+      }
+
+      p{
+        font-size: 15px;
+        @media (max-width: $screen-xs-max) {font-size: 10px}
+        font-family: 'Prompt';
+        color: white;
+      }
+
+      .detail{
+
+        padding: 0px 5px;
+        position: absolute;
+        left: 350px;
+        white-space: nowrap;
+        @media (max-width: $screen-xs-max) {left: 180px}
+        @media (min-width: $screen-md-min) {
+          opacity: 0;
+      }
+      }
+
+    }
+
+    .circle {
+      position: absolute;
+      left: -7px;
+      width: 12px;
+      height: 12px;
+      background-color: white;
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+    }
+
+  }
+
+
+}
+
+.register-container {
+  background-color: white;
+  height: 350px;
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+
+  h3{
+    padding-top: 100px;
+    font-family: 'Prompt';
+    color: $red;
+    text-align: center;
+  }
+
+  button{
+    padding: 10px 40px;
+    margin-top: 20px;
+    background-color: $dark-grey;
+    border-radius: 30em;
+    color: white;
+    font-family: 'Prompt-Light';
+    border-color: $dark-grey;
+    border-width: 2px;
+    letter-spacing: 2px;
+    transition: 0.2s;
+    &:hover {
+      background-color: white;
+      border-color: $red;
+      color: $red;
+      font-family: 'Prompt';
+    }
+  }
+}
+
+  .info-container {
+    background-color: $grey;
+    display: flex;
+    justify-content: space-around;
+    min-height: 250px;
+
+
+  h3{
+    margin-top: 50px;
+    font-family: 'Prompt';
+    color: white;
+    font-size: 20px;
+  }
+
+  .moreinfo{
+    margin-bottom: 10px;
+    font-family: 'Prompt-Light';
+    color: white;
+    font-size: 14px;
+  }
+
+  .contact{
+    font-size: 12px;
+    margin-left: 15px;
+    font-family: 'Prompt-Light';
+    color: white;
+  }
+
+  img{
+    width: 14px;
+  }
+
+  .facebook-pg{
+    font-size: 12px;
+    margin-left: 15px;
+    font-family: 'Prompt-Light';
+    color: white;
+  }
+
+  .facebook{
+    display: flex;
+    align-items: center;
+  }
+
 }
