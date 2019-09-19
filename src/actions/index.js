@@ -94,3 +94,14 @@ export const register = ({ info, user }) => async dispatch => {
     }
   });
 };
+
+export const finish = user => async dispatch => {
+  const { uid } = user;
+  const userRef = db.collection('user').doc(uid);
+  userRef.update({ register_status: 2 }).then(() => {
+    dispatch({
+      type: 'UPDATE',
+      payload: { ...user, register_status: 2 }
+    });
+  });
+};

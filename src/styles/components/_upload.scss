@@ -1,0 +1,41 @@
+.upload-phase-container {
+  .file-upload {
+    border: 1px solid $red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 5px 10px;
+    color: $red;
+    font-size: 14px;
+    width: auto;
+    border-radius: 4px;
+    transition-duration: 0.3s;
+    &:hover {
+      color: white;
+      background-color: $red;
+      transition-duration: 0.3s;
+    }
+
+    i {
+      margin-right: 5px;
+    }
+  }
+  .register-btn {
+    margin-top: 20px;
+    padding: 10px 40px;
+    background-color: $red;
+    border-radius: 30em;
+    color: white;
+    font-family: 'Montserrat';
+    border-color: $red;
+    border-width: 2px;
+    letter-spacing: 2px;
+    transition: 0.2s;
+    &:hover {
+      background-color: white;
+      color: $red;
+      font-family: 'Montserrat-SemiBold';
+    }
+  }
+}

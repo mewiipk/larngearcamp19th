@@ -4,6 +4,8 @@ import firebase, { db } from '../Firebase';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import RegisterPhase from '../components/Register';
+import UploadPhase from '../components/Upload';
+import FinishPhase from '../components/Finish';
 
 function facebookLogin() {
   let provider = new firebase.auth.FacebookAuthProvider();
@@ -76,20 +78,20 @@ function RegisterPage(props) {
           <React.Fragment>
             {(() => {
               switch (props.auth.register_status) {
+                case REGISTER_STATUS.UPLOAD:
+                  return (
+                    <UploadPhase auth={props.auth} finish={props.finish} />
+                  );
+                case REGISTER_STATUS.FINISH:
+                  return <FinishPhase />;
                 case REGISTER_STATUS.INIT:
+                default:
                   return (
                     <RegisterPhase
                       auth={props.auth}
                       register={props.register}
                     />
                   );
-
-                case REGISTER_STATUS.UPLOAD:
-                  return <div>Upload</div>;
-                case REGISTER_STATUS.FINISH:
-                  return <div>Finish</div>;
-                default:
-                  return <div>Eiei</div>;
               }
             })()}
             <button className="logout-btn" onClick={() => props.signOut()}>
