@@ -9,11 +9,11 @@ export const getUser = user => async dispatch => {
         payload: doc.data()
       });
     } else {
-      console.log('No data');
       const data = {
         uid: user.uid,
         email: user.email,
-        register_status: 0
+        register_status: 0,
+        created_time: new Date()
       };
       userRef.set(data);
       dispatch({
@@ -55,7 +55,7 @@ export const register = ({ info, user }) => async dispatch => {
   console.log({ info, user });
   const { prefix, schoolProvince } = info;
   const { uid } = user;
-  const counter = db.collection('counter').doc('counter');
+  const counterRef = db.collection('counter').doc('counter');
   const userRef = db.collection('user').doc(uid);
   let code = 'LG-XXXXX';
   let type;
@@ -72,27 +72,69 @@ export const register = ({ info, user }) => async dispatch => {
       type = 'D';
     }
   }
-  await counter.get().then(doc => {
-    if (doc.exists) {
-      const data = doc.data();
-      data[type] += 1;
-      data['all'] += 1;
-      counter.update(data);
-      if (data[type] < 10) {
-        code = `LG-${type}000${data[type]}`;
-      } else if (data[type] < 100) {
-        code = `LG-${type}00${data[type]}`;
-      } else if (data[type] < 1000) {
-        code = `LG-${type}0${data[type]}`;
-      } else code = `LG-${type}${data[type]}`;
-      userRef.update({ info, code, register_status: 1 }).then(() => {
-        dispatch({
-          type: 'UPDATE',
-          payload: { ...user, info, code, register_status: 1 }
-        });
+  return db
+    .runTransaction(function(transaction) {
+      return transaction.get(counterRef).then(function(counterDoc) {
+        // Add one person to the city population.
+        // Note: this could be done without a transaction
+        //       by updating the population using FieldValue.increment()
+        const data = counterDoc.data();
+        data[type] += 1;
+        data['all'] += 1;
+        transaction.update(counterRef, data);
+        if (data[type] < 10) {
+          code = `LG-${type}000${data[type]}`;
+        } else if (data[type] < 100) {
+          code = `LG-${type}00${data[type]}`;
+        } else if (data[type] < 1000) {
+          code = `LG-${type}0${data[type]}`;
+        } else code = `LG-${type}${data[type]}`;
       });
-    }
-  });
+    })
+    .then(function() {
+      const register_time = new Date();
+      userRef
+        .update({ info, code, register_status: 1, register_time })
+        .then(() => {
+          dispatch({
+            type: 'UPDATE',
+            payload: {
+              ...user,
+              info,
+              code,
+              register_status: 1,
+              register_time
+            }
+          });
+        });
+    })
+    .catch(function(error) {
+      console.log('Transaction failed: ', error);
+    });
+  // await counterRef.get().then(doc => {
+  //   if (doc.exists) {
+  //     const data = doc.data();
+  //     data[type] += 1;
+  //     data['all'] += 1;
+  //     counterRef.update(data);
+  //     if (data[type] < 10) {
+  //       code = `LG-${type}000${data[type]}`;
+  //     } else if (data[type] < 100) {
+  //       code = `LG-${type}00${data[type]}`;
+  //     } else if (data[type] < 1000) {
+  //       code = `LG-${type}0${data[type]}`;
+  //     } else code = `LG-${type}${data[type]}`;
+  //     const register_time = new Date();
+  //     userRef
+  //       .update({ info, code, register_status: 1, register_time })
+  //       .then(() => {
+  //         dispatch({
+  //           type: 'UPDATE',
+  //           payload: { ...user, info, code, register_status: 1, register_time }
+  //         });
+  //       });
+  //   }
+  // });
 };
 
 export const finish = user => async dispatch => {

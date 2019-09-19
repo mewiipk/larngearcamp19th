@@ -18,16 +18,13 @@ function App(props) {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         // User is signed in.
-        console.log('sign in');
         const a = props.getUser(user.providerData[0]);
         a.then(() => {
-          console.log('get user');
           setLogin(true);
         });
       } else {
         // User is signed out.
         // ...
-        console.log('not sign in');
         setLogin(true);
       }
     });

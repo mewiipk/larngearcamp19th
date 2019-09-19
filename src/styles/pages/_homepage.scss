@@ -5,43 +5,42 @@
     align-items: center;
     padding-bottom: 60px;
     background-color: $grey;
-  h1 {
-    padding-top: 100px;
-    font-family: 'Montserrat-ExtraLight';
-    color: white;
-  }
+    h1 {
+      padding-top: 100px;
+      font-family: 'Montserrat-ExtraLight';
+      color: white;
+    }
 
-  h1::first-letter {
-    font-size: 60px;
-    padding: 4px;
-  }
+    h1::first-letter {
+      font-size: 60px;
+      padding: 4px;
+    }
 
-  p {
-    font-family: 'Prompt-Light';
-    color: $light-grey;
-    margin-bottom: 20px;
-  }
+    p {
+      font-family: 'Prompt-Light';
+      color: $light-grey;
+      margin-bottom: 20px;
+    }
 
-  button {
-    margin: 20px;
-    padding: 10px 40px;
-    background-color: $red;
-    border-radius: 30em;
-    color: white;
-    font-family: 'Montserrat';
-    border-color: $red;
-    border-width: 2px;
-    letter-spacing: 2px;
-    transition: 0.2s;
-    &:hover {
-      background-color: white;
-      border-color: white;
-      color: $red;
-      font-family: 'Montserrat-SemiBold';
+    .apply-btn {
+      margin: 20px;
+      padding: 10px 40px;
+      background-color: $red;
+      border-radius: 30em;
+      color: white;
+      font-family: 'Montserrat';
+      border-color: $red;
+      border-width: 2px;
+      letter-spacing: 2px;
+      transition: 0.2s;
+      &:hover {
+        background-color: white;
+        border-color: white;
+        color: $red;
+        font-family: 'Montserrat-SemiBold';
+      }
     }
   }
-  }
-
 }
 
 .about-container {
@@ -117,7 +116,7 @@
     padding: 20px;
   }
   .require {
-    @media (max-width: $screen-sm-max){
+    @media (max-width: $screen-sm-max) {
       flex-flow: column;
     }
     margin: 0px 20px;
@@ -130,7 +129,7 @@
       flex: 1;
       margin: 0px 5px;
     }
-    
+
     p {
       color: black;
       font-family: 'CSPraJad';
@@ -150,14 +149,16 @@
   padding: 50px;
   padding-left: 150px;
   position: relative;
-  @media (max-width: $screen-xs-max) {padding-left: 80px}
+  @media (max-width: $screen-xs-max) {
+    padding-left: 80px;
+  }
 
-  .timeline-title{
+  .timeline-title {
     transform: rotate(-90deg);
-    left:-174px;
+    left: -174px;
     top: 134px;
     position: absolute;
-    color:white;
+    color: white;
     font-family: 'Montserrat-ExtraLight';
     font-size: 84px;
   }
@@ -172,7 +173,9 @@
 
     .phase {
       padding-left: 30px;
-      @media (max-width: $screen-xs-max) {padding-left: 15px}
+      @media (max-width: $screen-xs-max) {
+        padding-left: 15px;
+      }
       position: relative;
       display: flex;
       align-items: center;
@@ -180,48 +183,54 @@
 
       &:hover {
         .detail {
-           opacity: 1;
-           transition: opacity 0.3s ease;
-           background-color: white;
-           color: $red;
+          opacity: 1;
+          transition: opacity 0.3s ease;
+          background-color: white;
+          color: $red;
         }
 
         .circle {
           transform: scale(1.25);
-      }
-        .date{
+        }
+        .date {
           font-size: 20px;
-          @media (max-width: $screen-xs-max) {font-size: 13px}
+          @media (max-width: $screen-xs-max) {
+            font-size: 13px;
+          }
           transition: font-size 0.3s ease;
         }
-     }
+      }
 
-      .date{
+      .date {
         font-size: 18px;
-        @media (max-width: $screen-xs-max) {font-size: 12px}
+        @media (max-width: $screen-xs-max) {
+          font-size: 12px;
+        }
         font-family: 'Prompt-Medium';
         transition: font-size 0.3s ease;
       }
 
-      p{
+      p {
         font-size: 15px;
-        @media (max-width: $screen-xs-max) {font-size: 10px}
+        @media (max-width: $screen-xs-max) {
+          font-size: 10px;
+        }
         font-family: 'Prompt';
         color: white;
       }
 
-      .detail{
-
+      .detail {
         padding: 0px 5px;
         position: absolute;
         left: 350px;
         white-space: nowrap;
-        @media (max-width: $screen-xs-max) {left: 180px}
+        @media (max-width: $screen-xs-max) {
+          left: 180px;
+        }
         @media (min-width: $screen-md-min) {
           opacity: 0;
+        }
       }
-      }
-
     }
 
     .circle {
@@ -233,10 +242,7 @@
       border-radius: 50%;
       transition: transform 0.3s ease;
     }
-
   }
-
-
 }
 
 .register-container {
@@ -247,14 +253,14 @@
   flex-flow: column;
   align-items: center;
 
-  h3{
+  h3 {
     padding-top: 100px;
     font-family: 'Prompt';
     color: $red;
     text-align: center;
   }
 
-  button{
+  .apply-btn {
     padding: 10px 40px;
     margin-top: 20px;
     background-color: $dark-grey;
@@ -274,48 +280,46 @@
   }
 }
 
-  .info-container {
-    background-color: $grey;
-    display: flex;
-    justify-content: space-around;
-    min-height: 250px;
+.info-container {
+  background-color: $grey;
+  display: flex;
+  justify-content: space-around;
+  min-height: 250px;
 
-
-  h3{
+  h3 {
     margin-top: 50px;
     font-family: 'Prompt';
     color: white;
     font-size: 20px;
   }
 
-  .moreinfo{
+  .moreinfo {
     margin-bottom: 10px;
     font-family: 'Prompt-Light';
     color: white;
     font-size: 14px;
   }
 
-  .contact{
+  .contact {
     font-size: 12px;
     margin-left: 15px;
     font-family: 'Prompt-Light';
     color: white;
   }
 
-  img{
+  img {
     width: 14px;
   }
 
-  .facebook-pg{
+  .facebook-pg {
     font-size: 12px;
     margin-left: 15px;
     font-family: 'Prompt-Light';
     color: white;
   }
 
-  .facebook{
+  .facebook {
     display: flex;
     align-items: center;
   }
-
 }

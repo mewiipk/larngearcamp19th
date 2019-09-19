@@ -53,3 +53,15 @@
     }
   }
 }
+
+.register-wait {
+  height: calc(100vh - 36px);
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+
+  p {
+    font-family: 'CSPraJad-Bold';
+  }
+}
