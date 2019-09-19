@@ -2,7 +2,7 @@
   display: flex;
   flex-flow: column;
   width: 100vw;
-  //align-items: center;
+
   background-color: #f5f2f2;
 
   .title{
@@ -14,20 +14,25 @@
         font-family: 'Prompt-Light';
         color: white;
         text-align: center;
+        @media (max-width: $screen-xs-max) {
+          font-size: 26px;
+          padding: 10px;
+        }
     }
   }
 
   .register-requirement{
     width: 70%;
-    margin: 25px;
+    @media (max-width: $screen-xs-max) {width: 100%}
+    margin: auto;
     padding: 40px;
-    //box-shadow: 3px 3px 3px $light-grey;
     background-color: white;
 
     h3{
       font-family: 'Prompt-Medium';
       color: $red;
       font-size: 26px;
+      @media (max-width: $screen-xs-max) {font-size: 22px}
       margin-top: 20px;
     }
     
@@ -37,6 +42,7 @@
       padding-top:10px;
       color: $dark-grey;
       font-size: 16px;
+      @media (max-width: $screen-xs-max) {font-size: 14px}
 
     }
 
@@ -52,12 +58,15 @@
   .checked-row {
     display: flex;
     align-items: center;
+    margin: auto;
+    margin-bottom: 15px;
     p{
       font-family: 'Prompt-Light';
       margin-left: 20px;
       padding-top:10px;
       color: $dark-grey;
       font-size: 16px;
+      @media (max-width: $screen-xs-max) {font-size: 14px;}
 
     }
     .checkbox {
@@ -90,13 +99,19 @@
   }
   .warning {
     color: $red;
+    margin: auto;
+    margin-bottom: 10px;
     font-family: 'Prompt-Medium'
   }
   .register-btn {
     margin-top: 20px;
+    margin: auto;
+    margin-bottom: 40px;
+    display: block;
     padding: 10px 40px;
     background-color: $red;
     border-radius: 30em;
+    width: 150px;
     color: $red;
     background-color: transparent;
     font-family: 'Prompt-Light';
@@ -126,6 +141,9 @@
     font-family: 'Prompt-Medium';
     color: $red;
     text-align: center;
+    @media (max-width: $screen-xs-max) {
+      font-size: 26px;
+    }
   }
 
 
@@ -147,7 +165,8 @@
     // @media (max-width: $screen-sm-max) {
     //   flex-flow: column;
     // }
-    align-items: flex-start;
+    align-items: left;
+
     p {
       // @media (max-width: $screen-sm-max) {
       //   text-align: left;
@@ -159,16 +178,17 @@
       text-align: left;
       width: 100%;
       margin: 0;
-      flex: 1;
+      //flex: 1;
       // text-align: right;
       // margin-right: 10px;
       span {
-        color: red;
+        color: $red;
       }
     }
     .form-input {
-      flex: 2;
+      //flex: 2;
       font-family: 'CSPraJad-Medium';
+      width: 100%;
       color: $grey;
       &.ant-input {
         &:hover,
@@ -240,6 +260,14 @@
       }
     }
   }
+
+  h6{
+    font-family: 'Prompt-Medium';
+    text-align: center;
+    color: $red;
+    margin-top: 15px;
+  }
+
   .register-btn {
     align-self: center;
     margin-top: 20px;

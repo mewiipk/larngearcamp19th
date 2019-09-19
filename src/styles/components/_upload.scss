@@ -1,4 +1,6 @@
 .upload-phase-container {
+  background-color: #f5f2f2;
+  width: 100vw;
   .file-upload {
     border: 1px solid $red;
     display: flex;
@@ -21,6 +23,139 @@
       margin-right: 5px;
     }
   }
+
+  h4{
+    padding-top: 50px;
+    padding-bottom: 25px;
+    font-size: 36px;
+    width: 100%;
+    font-family: 'Prompt-Medium';
+    color: $red;
+    text-align: center;
+    @media (max-width: $screen-xs-max) {
+      font-size: 26px;
+    }
+  }
+
+  .register-info{
+    margin: 2% 5%;
+    padding: 45px;
+    @media (max-width: $screen-xs-max) {
+      padding: 30px;
+    }
+    background-color: white;
+    box-shadow: 3px 3px 3px $light-grey;
+    .register-code{
+      span{
+        font-family: 'Prompt';
+        color: $red;
+        font-size: 18px;
+        @media (max-width: $screen-xs-max) {
+          font-size: 16px;
+        }
+      }
+
+      font-family: 'Prompt-Light';
+      color: $dark-grey;
+      font-size: 14px;
+      margin: 5px 0px;
+      @media (max-width: $screen-xs-max) {
+        font-size: 12px;
+      }
+    }
+
+
+    .download-paper{
+      margin-top: 20px;
+      @media (max-width: $screen-xs-max) {
+        display: block;
+        margin: auto;
+      }
+      a{
+            // padding: 10px;
+            // background-color: white;
+            // border-width: 2px;
+            // border-color: $red;
+            // margin-left: 10px;
+
+              align-self: center;
+              margin-top: 50px;
+              padding: 10px 40px;
+              background-color: transparent;
+              border-radius: 30em;
+              width: 250px;
+              text-align: center;
+              color: $red;
+              font-family: 'Prompt-Light';
+              border-color: $red;
+              border-width: 2px;
+              letter-spacing: 2px;
+              transition: 0.2s;
+              &:hover , &:focus{
+                background-color: $red;
+                color: white;
+                font-family: 'Prompt';
+              }
+            }
+          }
+
+    }
+    
+
+    h6{
+      font-family: 'Prompt';
+      margin-top: 10px;
+      padding-top: 15px;
+      color: $dark-grey;
+      font-size: 20px;
+    }
+    p{
+      padding-left: 10px;
+      color: $grey;
+      font-family: 'CSPraJad';
+    }
+
+  }
+
+  .upload-requirement{
+    margin: 5%;
+    padding: 45px;
+    background-color: white;
+    box-shadow: 3px 3px 3px $light-grey;
+
+
+    h5{
+      font-family: 'Prompt';
+      padding-top: 15px;
+      padding-bottom: 10px;
+      color: $dark-grey;
+      font-size: 20px;
+    }
+
+    p{
+      padding-left: 10px;
+      color: $grey;
+      font-family: 'CSPraJad';
+      span{color: red}
+    }
+
+    .ps{
+      padding-left: 10px;
+      color: $red;
+      font-family: 'CSPraJad';
+    }
+
+    .upload-date{
+      text-align: center;
+      padding-top: 15px;
+      font-size: 16px;
+      font-family: 'Prompt-Medium';
+      color: $dark-grey;
+    }
+
+  }
+
+
   .register-btn {
     margin-top: 20px;
     padding: 10px 40px;
@@ -37,5 +172,5 @@
       color: $red;
       font-family: 'Montserrat-SemiBold';
     }
-  }
+  
 }
