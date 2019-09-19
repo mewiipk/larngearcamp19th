@@ -152,11 +152,10 @@ function RegisterForm({ auth, register }) {
     foodAllergic: null,
     drugAllergic: null
   });
-  console.log(info);
-  const onSubmit = e => {
+  const onSubmit = async e => {
     e.preventDefault();
     setLoading(true);
-    register({
+    await register({
       info: { ...info, birthday: moment(info.birthday).format('DD/MM/YYYY') },
       user: auth
     });

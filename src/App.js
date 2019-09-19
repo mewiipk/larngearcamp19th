@@ -7,8 +7,7 @@ import { Switch, Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from './actions';
 import HomePage from './pages/Index';
-// import RegisterPage from './pages/Register';
-import RegisterWait from './pages/RegisterWait';
+import RegisterPage from './pages/Register';
 import QandAPage from './pages/Q&A';
 import Header from './components/Header';
 import firebase from './Firebase';
@@ -36,7 +35,10 @@ function App(props) {
       <Header />
       <Switch>
         <Route exact path="/" render={() => <HomePage />} />
-        <Route path="/register" render={() => <RegisterWait />} />
+        <Route
+          path="/register"
+          render={() => <RegisterPage isLogin={isLogin} />}
+        />
         <Route path="/questions" render={() => <QandAPage />} />
       </Switch>
     </div>
