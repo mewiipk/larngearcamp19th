@@ -69,6 +69,7 @@ function RegisterPage(props) {
   return (
     <React.Fragment>
       <div className="register-page">
+        <h1>เชื่อมต่อกับ Facebook เพื่อสมัครค่ายลานเกียร์</h1>
         {!props.auth ? (
           <button onClick={() => facebookLogin()} className="login-btn">
             <img src={FBLogo} alt="fb-logo" />

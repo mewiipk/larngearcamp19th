@@ -1,9 +1,29 @@
 .register-page {
-  height: calc(100vh - 36px);
+  height: calc(100vh);
   display: flex;
   flex-flow: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  background-color: $grey;
+  background:linear-gradient(
+    rgba(0, 0, 0, 0.7), 
+    rgba(0, 0, 0, 0.7)
+  ), url("../../static/images/auditorium.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+
+  h1{
+    color: white;
+    font-family: 'Prompt-Light';
+    @media (max-width: $screen-xs-max) {
+      font-size: 30px;
+      text-align: center;
+    }
+  }
+
+
   .login-btn {
     margin: 10px 0;
     background-color: $fb;
