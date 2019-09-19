@@ -27,7 +27,7 @@ function QandAPage() {
 
         <div className = "question">
           <h3 className = "quest">ถ้าเคยสมัครปีที่แล้ว ปีนี้ต้องกรอกข้อมูลใหม่ไหม?</h3>
-          <p className = "ans">ต้องกรอกข้อมูลใหม่ค่ะ และต้องไม่เคยเข้าค่ายลานเกียร์มาก่อนด้วยะคะ</p>
+          <p className = "ans">ต้องกรอกข้อมูลใหม่ค่ะ และต้องไม่เคยเข้าค่ายลานเกียร์มาก่อนด้วยนะคะ</p>
         </div>
 
         <div className = "info-container">

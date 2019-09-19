@@ -90,15 +90,44 @@ function PreDetail({ setRead }) {
   return (
     <React.Fragment>
       <div className="pre-detail-container">
+        <div className = "requirement-register-container">
+          <div className = "title">
+            <h1>รายละเอียดการสมัครค่ายลานเกียร์ ครั้งที่ 19</h1>
+          </div>
+          <div className = "register-requirement">
+            <h3>คุณสมบัติผู้สมัคร</h3>
+            <p className = "requirement">1. กำลังศึกษาอยู่ในชั้นมัธยมศึกษาปีที่ 4 - 5 หรือ ปวช. ปีที่ 1-2</p>
+            <p className = "requirement">2. ไม่ป่วยเป็นโรคติดต่อร้ายแรง</p>
+            <p className = "requirement">3. สามารถค้างคืนได้ที่คณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัยตลอดระยะเวลาจัดค่าย</p>
+            <p className = "requirement">4. ไม่เคยเข้าร่วมค่ายลานเกียร์มาก่อน</p>
+            <p></p>
+
+            <h3>กำหนดการรับสมัคร</h3>
+            <p className = "requirement">เปิดรับสมัคร 19 ก.ย. - 10 ต.ค. 2562</p>
+            <p className = "requirement">ระบบจะเปิดให้ upload ใบสมัครในวันที่ ___</p>
+            <p></p>
+
+            <h3>เอกสารที่ต้องใช้ประกอบการสมัคร</h3>
+            <p className = "requirement">1. สำเนาบัตรประชาชน หรือ สำเนาทะเบียนบ้านที่มีชื่อตนเองอยู่ในหน้านั้น <span>**</span></p> 
+            <p className = "requirement">2. เอกสารที่แสดงว่ากำลังศึกษาอยู่ในระดับชั้นม.4-5 หรือ ปวช. ปี 1-2 (ปพ.1 หรือ ปพ.7) <span>**</span></p> 
+            <p className = "requirement">3. ใบสมัครครบถ้วนทั้ง 7 หน้า (ไม่รวมหน้าแรก)</p>
+            <p className = "ps">** อย่าลืมเซ็นรับรองสำเนาถูกต้องด้วยนะคะ</p>
+
+          </div>
+          
+
+
+        </div>
         <label className="checked-row">
+
           <Checkbox
             className="checkbox"
             checked={isChecked}
             onChange={e => setChecked(e.target.checked)}
           />
-          <p>อ่านแล้ว</p>
+          <p>คุณได้อ่านรายละเอียดการสมัครครบถ้วนเรียบร้อยแล้ว</p>
         </label>
-        {showWarning && <p className="warning">กรุณากดยืนยันว่าอ่านแล้ว</p>}
+        {showWarning && <p className="warning">กดยืนยันเมื่ออ่านรายละเอียดครบถ้วนแล้ว</p>}
         <button
           className="register-btn"
           onClick={() => {
@@ -220,6 +249,7 @@ function RegisterForm({ auth, register }) {
             <Input
               value={info.personalID}
               onChange={e => setInfo({ ...info, personalID: e.target.value })}
+              placeholder = "ตัวอย่าง: 1399911155566"
               pattern="\d*"
               className="form-input"
             />
@@ -281,6 +311,7 @@ function RegisterForm({ auth, register }) {
             <Input
               value={info.phone}
               onChange={e => setInfo({ ...info, phone: e.target.value })}
+              placeholder = "ตัวอย่าง: 0812345678"
               pattern="\d*"
               className="form-input"
             />
@@ -402,6 +433,7 @@ function RegisterForm({ auth, register }) {
               onChange={e =>
                 setInfo({ ...info, emergencyPhone: e.target.value })
               }
+              placeholder = "ตัวอย่าง: 0812345678"
               pattern="\d*"
               className="form-input"
             />

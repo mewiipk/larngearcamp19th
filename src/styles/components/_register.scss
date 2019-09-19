@@ -1,10 +1,65 @@
 .pre-detail-container {
   display: flex;
   flex-flow: column;
-  align-items: center;
+  width: 100vw;
+  //align-items: center;
+  background-color: #f5f2f2;
+
+  .title{
+    padding-top: 70px;
+    padding-bottom: 70px;
+    background-color: $grey;
+    width: 100%;
+    h1{
+        font-family: 'Prompt-Light';
+        color: white;
+        text-align: center;
+    }
+  }
+
+  .register-requirement{
+    width: 70%;
+    margin: 25px;
+    padding: 40px;
+    //box-shadow: 3px 3px 3px $light-grey;
+    background-color: white;
+
+    h3{
+      font-family: 'Prompt-Medium';
+      color: $red;
+      font-size: 26px;
+      margin-top: 20px;
+    }
+    
+    p{
+      font-family: 'CSPraJad';
+      margin-left: 20px;
+      padding-top:10px;
+      color: $dark-grey;
+      font-size: 16px;
+
+    }
+
+    span{
+      color: $red;
+    }
+    .ps{
+      color: $red;
+    }
+  }
+
+
   .checked-row {
     display: flex;
     align-items: center;
+    p{
+      font-family: 'Prompt-Light';
+      margin-left: 20px;
+      padding-top:10px;
+      color: $dark-grey;
+      font-size: 16px;
+
+    }
     .checkbox {
       margin-right: 5px;
       .ant-checkbox-input:focus + .ant-checkbox-inner {
@@ -35,22 +90,24 @@
   }
   .warning {
     color: $red;
+    font-family: 'Prompt-Medium'
   }
   .register-btn {
     margin-top: 20px;
     padding: 10px 40px;
     background-color: $red;
     border-radius: 30em;
-    color: white;
-    font-family: 'Montserrat';
+    color: $red;
+    background-color: transparent;
+    font-family: 'Prompt-Light';
     border-color: $red;
     border-width: 2px;
     letter-spacing: 2px;
     transition: 0.2s;
     &:hover {
-      background-color: white;
-      color: $red;
-      font-family: 'Montserrat-SemiBold';
+      background-color: $red;
+      color: white;
+      font-family: 'Prompt';
     }
   }
 }
@@ -60,8 +117,23 @@
   flex-flow: column;
   align-items: center;
   width: 100%;
+  background-color: #f5f2f2;
+
+  h4{
+    padding-top: 50px;
+    font-size: 36px;
+    width: 100%;
+    font-family: 'Prompt-Medium';
+    color: $red;
+    text-align: center;
+  }
+
+
   form {
-    min-width: 500px;
+    margin-top: 20px;
+    min-width: 60%;
+    padding: 50px;
+    background-color: white;
     display: flex;
     flex-flow: column;
     @media (max-width: $screen-xs-max) {
@@ -70,7 +142,7 @@
   }
   .form-item {
     display: flex;
-    flex-flow: column;
+    flex-flow: row;
     margin-bottom: 16px;
     // @media (max-width: $screen-sm-max) {
     //   flex-flow: column;
@@ -82,7 +154,8 @@
       //   width: 100%;
       //   margin: 0;
       // }
-      font-family: 'CSPraJad-Bold';
+      font-family: 'Prompt-Light';
+      color: $dark-grey;
       text-align: left;
       width: 100%;
       margin: 0;
@@ -95,6 +168,8 @@
     }
     .form-input {
       flex: 2;
+      font-family: 'CSPraJad-Medium';
+      color: $grey;
       &.ant-input {
         &:hover,
         &:focus {
@@ -169,18 +244,18 @@
     align-self: center;
     margin-top: 20px;
     padding: 10px 40px;
-    background-color: $red;
+    background-color: transparent;
     border-radius: 30em;
-    color: white;
-    font-family: 'Montserrat';
+    color: $red;
+    font-family: 'Prompt-Light';
     border-color: $red;
     border-width: 2px;
     letter-spacing: 2px;
     transition: 0.2s;
     &:hover {
-      background-color: white;
-      color: $red;
-      font-family: 'Montserrat-SemiBold';
+      background-color: $red;
+      color: white;
+      font-family: 'Prompt';
     }
   }
 }
