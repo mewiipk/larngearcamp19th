@@ -9,11 +9,11 @@ export const getUser = user => async dispatch => {
         payload: doc.data()
       });
     } else {
-      console.log('No data');
       const data = {
         uid: user.uid,
         email: user.email,
-        register_status: 0
+        register_status: 0,
+        created_time: new Date()
       };
       userRef.set(data);
       dispatch({
@@ -85,12 +85,15 @@ export const register = ({ info, user }) => async dispatch => {
       } else if (data[type] < 1000) {
         code = `LG-${type}0${data[type]}`;
       } else code = `LG-${type}${data[type]}`;
-      userRef.update({ info, code, register_status: 1 }).then(() => {
-        dispatch({
-          type: 'UPDATE',
-          payload: { ...user, info, code, register_status: 1 }
+      const register_time = new Date();
+      userRef
+        .update({ info, code, register_status: 1, register_time })
+        .then(() => {
+          dispatch({
+            type: 'UPDATE',
+            payload: { ...user, info, code, register_status: 1, register_time }
+          });
         });
-      });
     }
   });
 };

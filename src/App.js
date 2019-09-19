@@ -7,7 +7,8 @@ import { Switch, Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from './actions';
 import HomePage from './pages/Index';
-import RegisterPage from './pages/Register';
+// import RegisterPage from './pages/Register';
+import RegisterWait from './pages/RegisterWait';
 import QandAPage from './pages/Q&A';
 import Header from './components/Header';
 import firebase from './Firebase';
@@ -18,16 +19,13 @@ function App(props) {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         // User is signed in.
-        console.log('sign in');
         const a = props.getUser(user.providerData[0]);
         a.then(() => {
-          console.log('get user');
           setLogin(true);
         });
       } else {
         // User is signed out.
         // ...
-        console.log('not sign in');
         setLogin(true);
       }
     });
@@ -38,10 +36,7 @@ function App(props) {
       <Header />
       <Switch>
         <Route exact path="/" render={() => <HomePage />} />
-        <Route
-          path="/register"
-          render={() => <RegisterPage isLogin={isLogin} />}
-        />
+        <Route path="/register" render={() => <RegisterWait />} />
         <Route path="/questions" render={() => <QandAPage />} />
       </Switch>
     </div>

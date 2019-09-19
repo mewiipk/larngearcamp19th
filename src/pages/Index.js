@@ -5,6 +5,7 @@ import Health from '../static/images/health.PNG';
 import Night from '../static/images/night.PNG';
 import Paper from '../static/images/paper.PNG';
 import FB from '../static/images/fb-logo.svg';
+import { Link } from 'react-router-dom';
 
 function HomePage() {
   return (
@@ -13,7 +14,9 @@ function HomePage() {
         <div className="first-container">
           <h1>LARNGEAR CAMP 19th</h1>
           <p> ค้นหาความเป็น วิศวกร ด้วยมือของคุณเอง</p>
-          <button>APPLY NOW</button>
+          <Link className="apply-btn" to="/register">
+            APPLY NOW
+          </Link>
         </div>
 
         <div className="about-container">
@@ -44,8 +47,7 @@ function HomePage() {
             <div className="req">
               <img src={Student} />
               <p>
-                1. กำลังศึกษาอยู่ในชั้นมัธยมศึกษาปีที่ 4 - 5
-                หรือ ปวช. ปีที่ 1-2
+                1. กำลังศึกษาอยู่ในชั้นมัธยมศึกษาปีที่ 4 - 5 หรือ ปวช. ปีที่ 1-2
               </p>
             </div>
 
@@ -69,85 +71,78 @@ function HomePage() {
           </div>
         </div>
 
+        <div className="timeline-container">
+          <p className="timeline-title">TIMELINE</p>
 
-        <div className = "timeline-container">
-          <p className = "timeline-title">TIMELINE</p>
-
-          <div className = "timeline-line">
-
-            <div className = "phase">
-                <div className = "circle"></div>
-                <p className = "date">19 กันยายน - 10 ตุลาคม 2562</p>
-                <p className = "detail">  รับสมัคร</p>
-
-            </div>
-    
-            <div className = "phase">
-                <div className = "circle"></div>
-                <p className = "date">1 พฤศจิกายน 2562</p>
-                <p className = "detail">  ประกาศผล</p>
+          <div className="timeline-line">
+            <div className="phase">
+              <div className="circle"></div>
+              <p className="date">19 กันยายน - 10 ตุลาคม 2562</p>
+              <p className="detail"> รับสมัคร</p>
             </div>
 
-            <div className = "phase">
-                <div className = "circle"></div>
-                <p className = "date">2 - 8 พฤศจิกายน 2562</p>
-                <p className = "detail">สัมภาษณ์รอบต่างจังหวัด</p>
-
+            <div className="phase">
+              <div className="circle"></div>
+              <p className="date">1 พฤศจิกายน 2562</p>
+              <p className="detail"> ประกาศผล</p>
             </div>
 
-            <div className = "phase">
-                <div className = "circle"></div>
-                <p className = "date">9 พฤศจิกายน 2562</p>
-                <p className = "detail">  สัมภาษณ์รอบกรุงเทพ</p>
+            <div className="phase">
+              <div className="circle"></div>
+              <p className="date">2 - 8 พฤศจิกายน 2562</p>
+              <p className="detail">สัมภาษณ์รอบต่างจังหวัด</p>
             </div>
 
-            <div className = "phase">
-                <div className = "circle"></div>
-                <p className = "date">To Be Announce</p>
-                <p className = "detail">  ประกาศผลสัมภาษณ์</p>
+            <div className="phase">
+              <div className="circle"></div>
+              <p className="date">9 พฤศจิกายน 2562</p>
+              <p className="detail"> สัมภาษณ์รอบกรุงเทพ</p>
             </div>
 
-            <div className = "phase">
-                <div className = "circle"></div>
-                <p className = "date">To Be Announce</p>
-                <p className = "detail">  โอนเงินเพื่อยืนยันสิทธิ์</p>
-
+            <div className="phase">
+              <div className="circle"></div>
+              <p className="date">To Be Announce</p>
+              <p className="detail"> ประกาศผลสัมภาษณ์</p>
             </div>
 
-            <div className = "phase">
-                <div className = "circle"></div>
-                <p className = "date">15 - 18 มกราคม 2563</p>
-                <p className = "detail">  ค่ายลานเกียร์ ครั้งที่ 19</p>
-
+            <div className="phase">
+              <div className="circle"></div>
+              <p className="date">To Be Announce</p>
+              <p className="detail"> โอนเงินเพื่อยืนยันสิทธิ์</p>
             </div>
 
+            <div className="phase">
+              <div className="circle"></div>
+              <p className="date">15 - 18 มกราคม 2563</p>
+              <p className="detail"> ค่ายลานเกียร์ ครั้งที่ 19</p>
+            </div>
           </div>
         </div>
 
-        <div className = "register-container">
+        <div className="register-container">
           <h3>รับสมัคร 19 กันยายน - 10 ตุลาคม 2562</h3>
-          <button>สมัครค่ายลานเกียร์</button>
+          <Link className="apply-btn" to="/register">
+            สมัครค่ายลานเกียร์
+          </Link>
         </div>
 
-        <div className = "info-container">
-          <div className = "info-left">
+        <div className="info-container">
+          <div className="info-left">
             <h3>ติดต่อ</h3>
-            <p className = "moreinfo">หากมีข้อสงสัยเพิ่มเติม ติดต่อ</p>
-            <p className = "contact">⚙️พี่นำ 081-480-0063</p>
-            <p className = "contact">⚙️พี่แทน 085-915-9188</p>
-            <p className = "contact">⚙️พี่มิว 085-254-5588</p>
+            <p className="moreinfo">หากมีข้อสงสัยเพิ่มเติม ติดต่อ</p>
+            <p className="contact">⚙️พี่นำ 081-480-0063</p>
+            <p className="contact">⚙️พี่แทน 085-915-9188</p>
+            <p className="contact">⚙️พี่มิว 085-254-5588</p>
           </div>
 
-          <div className = "info-right">
+          <div className="info-right">
             <h3>ติดตามข่าวสารได้ที่</h3>
-            <div className = "facebook">
+            <div className="facebook">
               <img src={FB} />
-              <p className = "facebook-pg">LarnGear Camp</p>
+              <p className="facebook-pg">LarnGear Camp</p>
             </div>
-
           </div>
         </div>
-
       </div>
     </React.Fragment>
   );
