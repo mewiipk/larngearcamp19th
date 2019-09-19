@@ -2,23 +2,24 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { Router } from 'react-router-dom';
+// import { Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import reduxThunk from 'redux-thunk';
 import reducers from './reducers';
-import { createBrowserHistory } from 'history';
+// import { createBrowserHistory } from 'history';
 import * as serviceWorker from './serviceWorker';
+import { BrowserRouter } from 'react-router-dom';
 
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
-const history = createBrowserHistory();
+// const history = createBrowserHistory();
 
 const AppWithRouter = () => {
   return (
     <Provider store={store}>
-      <Router history={history}>
+      <BrowserRouter>
         <App />
-      </Router>
+      </BrowserRouter>
     </Provider>
   );
 };
