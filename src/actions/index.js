@@ -53,7 +53,7 @@ const centerList = [
 export const register = ({ info, user }) => async dispatch => {
   const { prefix, schoolProvince } = info;
   const { uid } = user;
-  const counterRef = db.collection('counter').doc('counter');
+  const counterRef = db.collection('counter').doc('counter_dev');
   const userRef = db.collection('user').doc(uid);
   let code = 'LG-XXXXX';
   let type;
