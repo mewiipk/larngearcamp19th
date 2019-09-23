@@ -95,7 +95,7 @@ function HomePage() {
 
             <div className="phase">
               <div className="circle"></div>
-              <p className="date">9 พฤศจิกายน 2562</p>
+              <p className="date">10 พฤศจิกายน 2562</p>
               <p className="detail"> สัมภาษณ์รอบกรุงเทพ</p>
             </div>
 

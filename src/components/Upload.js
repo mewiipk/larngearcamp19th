@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Icon } from 'antd';
 import firebase, { db } from '../Firebase';
+import checkmark from '../static/images/check.svg';
+import xmark from '../static/images/x-mark.svg';
 
 function UploadPhase({ auth, finish }) {
   const [isLoading, setLoading] = useState(false);
@@ -135,6 +137,23 @@ function UploadPhase({ auth, finish }) {
             >
               DOWNLOAD ใบสมัคร
             </a>
+          
+          <h6>สถานะการส่งใบสมัคร <span>สีแดง: ยังไม่มีการอัพโหลด   สีเขียว: มีการอัพโหลดเกิดขึ้น</span></h6>
+          <div className = "upload-status">
+              {upload.registerFile ? <img src={checkmark} /> : <img src={xmark} />}
+              <p className = "upload-status-name">ใบสมัคร</p>
+          </div>
+
+          <div className = "upload-status">
+              {upload.studentIdentification ? <img src={checkmark} /> : <img src={xmark} />}
+              <p className = "upload-status-name">ใบ ปพ.1 หรือ ปพ.7</p>
+          </div>
+
+          <div className = "upload-status">
+              {upload.personalIDCard ? <img src={checkmark} /> : <img src={xmark} />}
+              <p className = "upload-status-name">สำเนาบัตรประชาชน หรือ สำเนาทะเบียนบ้านที่มีชื่อตนเองอยู่ในหน้านั้น</p>
+          </div>
+
           </div>
         </div>
 
@@ -154,12 +173,14 @@ function UploadPhase({ auth, finish }) {
           </p>
           <p className="ps">** อย่าลืมเซ็นรับรองสำเนาถูกต้องด้วยนะคะ</p>
           <p className="upload-date">
-            ระบบจะเปิดให้ส่งใบสมัครตั้งแต่วันที่ 22 กันยายน - 10 ตุลาคม
+            หมายเหตุ : พี่ ๆ จะพิจารณาใบสมัครของน้อง จากไฟล์ล่าสุดหลังกดยืนยันการสมัครเท่านั้น ทั้งนี้ หากน้อง ๆ อัพโหลดไฟล์ แต่ยังไม่ได้กดปุ่มยืนยันการสมัครด้านล่างสุดของหน้าเว็บ
+             น้อง ๆ สามารถกลับมาอัพโหลดไฟล์ใหม่ได้เสมอจนถึงวันสุดท้ายของการสมัคร โดยไฟล์ล่าสุดจะถูกเก็บบันทึกไว้ และน้อง ๆ สามารถกดดูได้หลังจากการสมัครแล้ว (หากไม่ขึ้น ให้น้องลองรีเฟรชหน้าเว็บดูนะคะ :) )
           </p>
-        </div>
-        {/* <div className="upload-piece">
-          <p className="head">อัพโหลดใบสมัคร</p>
-          <p className="detail">รองรับเฉพาะไฟล์ประเภท pdf เท่านั้น</p>
+
+          <div className = "upload-part">
+          <div className="upload-piece">
+          <p className="head">อัพโหลดใบสมัคร <span className="detail">*รองรับเฉพาะไฟล์ประเภท pdf เท่านั้น*</span></p>
+          {/* <p className="detail">รองรับเฉพาะไฟล์ประเภท pdf เท่านั้น</p> */}
           <div>
             <input
               id="register-file"
@@ -186,8 +207,8 @@ function UploadPhase({ auth, finish }) {
           </div>
         </div>
         <div className="upload-piece">
-          <p className="head">อัพโหลดสำเนาบัตรประชาชน</p>
-          <p className="detail">รองรับไฟล์ประเภท pdf และรูปภาพ</p>
+          <p className="head">อัพโหลดสำเนาบัตรประชาชน <span className="detail">*รองรับไฟล์ประเภท pdf และรูปภาพ*</span></p>
+          {/* <p className="detail">รองรับไฟล์ประเภท pdf และรูปภาพ</p> */}
           <div>
             <input
               id="personal-id-card"
@@ -214,8 +235,8 @@ function UploadPhase({ auth, finish }) {
           </div>
         </div>
         <div className="upload-piece">
-          <p className="head">อัพโหลดใบปพ.</p>
-          <p className="detail">รองรับไฟล์ประเภท pdf และรูปภาพ</p>
+          <p className="head">อัพโหลดใบปพ. <span className="detail">*รองรับไฟล์ประเภท pdf และรูปภาพ*</span></p>
+          {/* <p className="detail">รองรับไฟล์ประเภท pdf และรูปภาพ</p> */}
           <div>
             <input
               id="student-identification"
@@ -241,13 +262,27 @@ function UploadPhase({ auth, finish }) {
             )}
           </div>
         </div>
-        <button
-          disabled={isLoading}
-          className="register-btn"
-          onClick={() => onFinish()}
-        >
-          ยืนยันข้อมูล
-        </button> */}
+
+        <h5>
+            **** ตรวจสอบไฟล์ทั้ง 3 ไฟล์ให้ครบถ้วน หลังจากกดยืนยันข้อมูลแล้ว <span>ผู้สมัครจะไม่สามารถกลับมาแก้ไขการอัพโหลดได้อีก</span> ****
+        </h5>
+
+        <div className = "button-part">
+          <button
+            disabled={!upload.registerFile || !upload.studentIdentification || !upload.personalIDCard}
+            className="register-btn"
+            onClick={() => onFinish()}
+          >
+            ยืนยันการสมัครเข้าค่ายลานเกียร์ครั้งที่ 19
+          </button> 
+
+        </div>
+
+          </div>
+
+
+        </div>
+        
       </div>
     </React.Fragment>
   );

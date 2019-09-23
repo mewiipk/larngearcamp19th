@@ -1,4 +1,5 @@
 .upload-phase-container {
+  
   background-color: #f5f2f2;
   width: 100vw;
   .file-upload {
@@ -45,6 +46,7 @@
     }
     background-color: white;
     box-shadow: 3px 3px 3px $light-grey;
+
     .register-code{
       span{
         font-family: 'Prompt';
@@ -108,12 +110,35 @@
       padding-top: 15px;
       color: $dark-grey;
       font-size: 20px;
+
+      span{
+        font-size: 14px;
+        color: $red;
+        font-family: 'Prompt-Light';
+      }
     }
     p{
       padding-left: 10px;
       color: $grey;
       font-family: 'CSPraJad';
     }
+    .upload-status{
+      display: flex;
+      flex-flow: row;
+      margin: 20px 0px;
+
+      .upload-status-name{
+        padding-left: 20px;
+        color: $grey;
+        font-family: 'Prompt';
+      }
+
+      img{
+        width: 20px;
+        margin-left: 30px;
+      }
+    }
+
 
   }
 
@@ -147,14 +172,68 @@
 
     .upload-date{
       text-align: center;
-      padding-top: 15px;
+      padding-top: 40px;
       font-size: 16px;
       font-family: 'Prompt-Medium';
       color: $dark-grey;
     }
 
+    .upload-part{
+      margin-top: 50px;
+
+      .upload-piece{
+        margin: 20px 0px;
+      }
+
+      .head{
+        font-family: 'Prompt';
+        color: $grey;
+        font-size: 18px;
+        margin: 5px 0px;
+        @media (max-width: $screen-xs-max) {
+          font-size: 12px;
+        }
+      }
+
+      .detail{
+        font-family: 'CSPraJad-Bold';
+        font-size: 15px;
+        margin-left: 20px;
+        color: $red;
+      }
+
+      .file-upload{
+        width: 30%;
+        font-family: 'CSPraJad';
+        margin-left: 60px;
+        margin-top: 5px;
+        margin-bottom: 30px;
+      }
+
+      h5{
+        font-family: 'CSPraJad-Bold';
+        color: red;
+        text-align: center;
+
+        span{
+          text-decoration: underline;
+        }
+      }
+
+    }
+
+
   }
 
+.button-part{
+    display: flex;
+    flex-flow: column;
+    margin-bottom: 16px;
+    // @media (max-width: $screen-sm-max) {
+    //   flex-flow: column;
+    // }
+    align-items: center;
+}
 
   .register-btn {
     margin-top: 20px;
@@ -167,6 +246,7 @@
     border-width: 2px;
     letter-spacing: 2px;
     transition: 0.2s;
+    align-self: center;
     &:hover {
       background-color: white;
       color: $red;

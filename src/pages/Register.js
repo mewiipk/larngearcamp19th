@@ -82,7 +82,7 @@ function RegisterPage(props) {
             case REGISTER_STATUS.UPLOAD:
               return <UploadPhase auth={props.auth} finish={props.finish} />;
             case REGISTER_STATUS.FINISH:
-              return <FinishPhase />;
+              return <FinishPhase auth={props.auth} finish={props.finish}/>;
             case REGISTER_STATUS.INIT:
             default:
               return (

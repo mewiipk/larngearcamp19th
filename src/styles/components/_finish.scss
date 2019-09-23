@@ -1,2 +1,45 @@
 .finish-phase-container {
+
+    padding: 30px;
+    background-color: white;
+    box-shadow: 3px 3px 3px $light-grey;
+
+    .register-info{
+        text-align: center;
+        padding-bottom: 20px;
+        @media (max-width: $screen-xs-max) {
+        }
+        // background-color: white;
+        // box-shadow: 3px 3px 3px $light-grey;
+    
+        .register-code{
+          span{
+            font-family: 'Prompt';
+            color: $red;
+            font-size: 16px;
+            @media (max-width: $screen-xs-max) {
+              font-size: 14px;
+            }
+          }
+    
+          font-family: 'Prompt-Light';
+          color: $dark-grey;
+          font-size: 12px;
+          margin: 5px 0px;
+          @media (max-width: $screen-xs-max) {
+            font-size: 10px;
+          }
+        }
+    }
+
+    h5{
+        text-align: center;
+        font-family: 'Prompt';
+        color: $red;
+    }
+
+    p{
+        font-family: 'CSPraJad';
+    }
+
 }
