@@ -23,7 +23,7 @@ function UploadPhase({ auth, finish }) {
     console.log(file);
     setIsUpload({ ...isUpload, registerFile: true });
     let uploadTask = storageRef
-      .child('registerFile/' + file.name + '_' + auth.uid)
+      .child('registerFile/' + auth.code + '/' + file.name + '_' + auth.uid)
       .put(file);
     await uploadTask
       .then(async snapshot => {
@@ -32,6 +32,9 @@ function UploadPhase({ auth, finish }) {
             .collection('user')
             .doc(auth.uid)
             .update({ 'upload.registerFile': url });
+          db.collection('registerFile')
+            .doc(auth.code)
+            .update({ url });
           setUpload({ ...upload, registerFile: url });
           setIsUpload({ ...isUpload, registerFile: false });
         });
@@ -47,7 +50,7 @@ function UploadPhase({ auth, finish }) {
     console.log(file);
     setIsUpload({ ...isUpload, personalIDCard: true });
     let uploadTask = storageRef
-      .child('personalIDCard/' + file.name + '_' + auth.uid)
+      .child('personalIDCard/' + auth.code + '/' + file.name + '_' + auth.uid)
       .put(file);
     await uploadTask
       .then(async snapshot => {
@@ -56,6 +59,9 @@ function UploadPhase({ auth, finish }) {
             .collection('user')
             .doc(auth.uid)
             .update({ 'upload.personalIDCard': url });
+          db.collection('personalIDCard')
+            .doc(auth.code)
+            .update({ url });
           setUpload({ ...upload, personalIDCard: url });
           setIsUpload({ ...isUpload, personalIDCard: false });
         });
@@ -71,7 +77,9 @@ function UploadPhase({ auth, finish }) {
     console.log(file);
     setIsUpload({ ...isUpload, studentIdentification: true });
     let uploadTask = storageRef
-      .child('studentIdentification/' + file.name + '_' + auth.uid)
+      .child(
+        'studentIdentification/' + auth.code + '/' + file.name + '_' + auth.uid
+      )
       .put(file);
     await uploadTask
       .then(async snapshot => {
@@ -80,6 +88,9 @@ function UploadPhase({ auth, finish }) {
             .collection('user')
             .doc(auth.uid)
             .update({ 'upload.studentIdentification': url });
+          db.collection('studentIdentification')
+            .doc(auth.code)
+            .update({ url });
           setUpload({ ...upload, studentIdentification: url });
           setIsUpload({ ...isUpload, studentIdentification: false });
         });
@@ -96,27 +107,46 @@ function UploadPhase({ auth, finish }) {
   return (
     <React.Fragment>
       <div className="upload-phase-container">
-      <h4>สมัครค่ายลานเกียร์ ครั้งที่ 19</h4>
-        <div className = "register-info">
-          <p className = "register-code"><span>รหัสประจำตัวผู้สมัคร : </span>{auth.code}</p>
-          <p className = "register-code"><span>ชื่อ - นามสกุล ผู้สมัคร : </span>{auth.info.firstName} {auth.info.lastName}</p>
+        <h4>สมัครค่ายลานเกียร์ ครั้งที่ 19</h4>
+        <div className="register-info">
+          <p className="register-code">
+            <span>รหัสประจำตัวผู้สมัคร : </span>
+            {auth.code}
+          </p>
+          <p className="register-code">
+            <span>ชื่อ - นามสกุล ผู้สมัคร : </span>
+            {auth.info.firstName} {auth.info.lastName}
+          </p>
           <h6>ดาวน์โหลดใบสมัคร</h6>
           <p>ใบสมัครมีทั้งหมด 8 หน้า ทำให้ครบถ้วนทุกหน้าก่อนส่ง</p>
-          <div className = "download-paper">
-            <a href="https://firebasestorage.googleapis.com/v0/b/larngearcamp19th.appspot.com/o/LG19Application.pdf?alt=media&token=b6495b7f-529d-4c4a-a948-fe0175a4b2e4" target="_blank">DOWNLOAD ใบสมัคร</a>
+          <div className="download-paper">
+            <a
+              href="https://firebasestorage.googleapis.com/v0/b/larngearcamp19th.appspot.com/o/LG19Application.pdf?alt=media&token=b6495b7f-529d-4c4a-a948-fe0175a4b2e4"
+              target="_blank"
+            >
+              DOWNLOAD ใบสมัคร
+            </a>
           </div>
-          
         </div>
-      
 
-        <div className = "upload-requirement">
+        <div className="upload-requirement">
           <h5>ส่งใบสมัคร</h5>
           <p>น้อง ๆ ต้องส่งทั้งสิ้น 3 ไฟล์ คือ</p>
-            <p className = "requirement">1. สำเนาบัตรประชาชน หรือ สำเนาทะเบียนบ้านที่มีชื่อตนเองอยู่ในหน้านั้น <span>**</span></p> 
-            <p className = "requirement">2. เอกสารที่แสดงว่ากำลังศึกษาอยู่ในระดับชั้น ม.4-5 หรือ ปวช. ปี 1-2 (ปพ.1 หรือ ปพ.7) <span>**</span></p> 
-            <p className = "requirement">3. ใบสมัครครบถ้วนทั้ง 7 หน้า (ไม่รวมหน้าแรก)</p>
-            <p className = "ps">** อย่าลืมเซ็นรับรองสำเนาถูกต้องด้วยนะคะ</p>
-          <p className = "upload-date">ระบบจะเปิดให้ส่งใบสมัครตั้งแต่วันที่ 22 กันยายน - 10 ตุลาคม</p>
+          <p className="requirement">
+            1. สำเนาบัตรประชาชน หรือ
+            สำเนาทะเบียนบ้านที่มีชื่อตนเองอยู่ในหน้านั้น <span>**</span>
+          </p>
+          <p className="requirement">
+            2. เอกสารที่แสดงว่ากำลังศึกษาอยู่ในระดับชั้น ม.4-5 หรือ ปวช. ปี 1-2
+            (ปพ.1 หรือ ปพ.7) <span>**</span>
+          </p>
+          <p className="requirement">
+            3. ใบสมัครครบถ้วนทั้ง 7 หน้า (ไม่รวมหน้าแรก)
+          </p>
+          <p className="ps">** อย่าลืมเซ็นรับรองสำเนาถูกต้องด้วยนะคะ</p>
+          <p className="upload-date">
+            ระบบจะเปิดให้ส่งใบสมัครตั้งแต่วันที่ 22 กันยายน - 10 ตุลาคม
+          </p>
         </div>
         {/* <div className="upload-piece">
           <p className="head">อัพโหลดใบสมัคร</p>

@@ -5,69 +5,74 @@
 
   background-color: #f5f2f2;
 
-  .title{
+  .title {
     padding-top: 70px;
     padding-bottom: 70px;
     background-color: $grey;
     width: 100%;
-    h1{
-        font-family: 'Prompt-Light';
-        color: white;
-        text-align: center;
-        @media (max-width: $screen-xs-max) {
-          font-size: 26px;
-          padding: 10px;
-        }
+    h1 {
+      font-family: 'Prompt-Light';
+      color: white;
+      text-align: center;
+      @media (max-width: $screen-xs-max) {
+        font-size: 26px;
+        padding: 10px;
+      }
     }
   }
 
-  .register-requirement{
+  .register-requirement {
     width: 70%;
-    @media (max-width: $screen-xs-max) {width: 100%}
+    @media (max-width: $screen-xs-max) {
+      width: 100%;
+    }
     margin: auto;
     padding: 40px;
     background-color: white;
 
-    h3{
+    h3 {
       font-family: 'Prompt-Medium';
       color: $red;
       font-size: 26px;
-      @media (max-width: $screen-xs-max) {font-size: 22px}
+      @media (max-width: $screen-xs-max) {
+        font-size: 22px;
+      }
       margin-top: 20px;
     }
-    
-    p{
+
+    p {
       font-family: 'CSPraJad';
       margin-left: 20px;
-      padding-top:10px;
+      padding-top: 10px;
       color: $dark-grey;
       font-size: 16px;
-      @media (max-width: $screen-xs-max) {font-size: 14px}
-
+      @media (max-width: $screen-xs-max) {
+        font-size: 14px;
+      }
     }
 
-    span{
+    span {
       color: $red;
     }
-    .ps{
+    .ps {
       color: $red;
     }
   }
-
 
   .checked-row {
     display: flex;
     align-items: center;
     margin: auto;
     margin-bottom: 15px;
-    p{
+    margin-top: 10px;
+    p {
       font-family: 'Prompt-Light';
       margin-left: 20px;
-      padding-top:10px;
       color: $dark-grey;
       font-size: 16px;
-      @media (max-width: $screen-xs-max) {font-size: 14px;}
-
+      @media (max-width: $screen-xs-max) {
+        font-size: 14px;
+      }
     }
     .checkbox {
       margin-right: 5px;
@@ -101,7 +106,7 @@
     color: $red;
     margin: auto;
     margin-bottom: 10px;
-    font-family: 'Prompt-Medium'
+    font-family: 'Prompt-Medium';
   }
   .register-btn {
     margin-top: 20px;
@@ -134,7 +139,7 @@
   width: 100%;
   background-color: #f5f2f2;
 
-  h4{
+  h4 {
     padding-top: 50px;
     font-size: 36px;
     width: 100%;
@@ -145,7 +150,6 @@
       font-size: 26px;
     }
   }
-
 
   form {
     margin-top: 20px;
@@ -165,7 +169,7 @@
     // @media (max-width: $screen-sm-max) {
     //   flex-flow: column;
     // }
-    align-items: left;
+    align-items: center;
 
     p {
       // @media (max-width: $screen-sm-max) {
@@ -261,11 +265,16 @@
     }
   }
 
-  h6{
+  h6 {
     font-family: 'Prompt-Medium';
     text-align: center;
     color: $red;
     margin-top: 15px;
+  }
+
+  .error {
+    color: $red;
+    text-align: center;
   }
 
   .register-btn {

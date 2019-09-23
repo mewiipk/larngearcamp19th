@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import FBLogo from '../static/images/fb-logo.svg';
-import firebase, { db } from '../Firebase';
+import firebase from '../Firebase';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import RegisterPhase from '../components/Register';
@@ -55,51 +55,44 @@ const REGISTER_STATUS = {
 };
 
 function RegisterPage(props) {
-  const [registerStatus, setRegisterStatus] = useState(REGISTER_STATUS.INIT);
-  console.log(registerStatus);
-  useEffect(() => {
-    if (props.auth) {
-      console.log('set status');
-      setRegisterStatus(props.auth.register_status);
-    }
-  }, [props.auth]);
-  console.log(props);
-  if (!props.isLogin) return <div />;
+  if (!props.isLogin)
+    return (
+      <div className="authenticating">
+        <p>กำลังประมวลผล . .</p>
+      </div>
+    );
+
+  if (!props.auth) {
+    return (
+      <div className="connect-to-facebook">
+        <h1>เชื่อมต่อกับ Facebook เพื่อสมัครค่ายลานเกียร์</h1>
+        <button onClick={() => facebookLogin()} className="login-btn">
+          <img src={FBLogo} alt="fb-logo" />
+          <p className="font-montserrat">Continue with Facebook</p>
+        </button>
+      </div>
+    );
+  }
 
   return (
     <React.Fragment>
       <div className="register-page">
-        <h1>เชื่อมต่อกับ Facebook เพื่อสมัครค่ายลานเกียร์</h1>
-        {!props.auth ? (
-          <button onClick={() => facebookLogin()} className="login-btn">
-            <img src={FBLogo} alt="fb-logo" />
-            <p className="font-montserrat">Continue with Facebook</p>
-          </button>
-        ) : (
-          <React.Fragment>
-            {(() => {
-              switch (props.auth.register_status) {
-                case REGISTER_STATUS.UPLOAD:
-                  return (
-                    <UploadPhase auth={props.auth} finish={props.finish} />
-                  );
-                case REGISTER_STATUS.FINISH:
-                  return <FinishPhase />;
-                case REGISTER_STATUS.INIT:
-                default:
-                  return (
-                    <RegisterPhase
-                      auth={props.auth}
-                      register={props.register}
-                    />
-                  );
-              }
-            })()}
-            <button className="logout-btn" onClick={() => props.signOut()}>
-              ออกจากระบบ
-            </button>
-          </React.Fragment>
-        )}
+        {(() => {
+          switch (props.auth.register_status) {
+            case REGISTER_STATUS.UPLOAD:
+              return <UploadPhase auth={props.auth} finish={props.finish} />;
+            case REGISTER_STATUS.FINISH:
+              return <FinishPhase />;
+            case REGISTER_STATUS.INIT:
+            default:
+              return (
+                <RegisterPhase auth={props.auth} register={props.register} />
+              );
+          }
+        })()}
+        <button className="logout-btn" onClick={() => props.signOut()}>
+          ออกจากระบบ
+        </button>
       </div>
     </React.Fragment>
   );

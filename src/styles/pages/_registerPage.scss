@@ -1,20 +1,12 @@
 .register-page {
-  height: calc(100vh);
+  min-height: calc(100vh - 33px);
   display: flex;
   flex-flow: column;
   align-items: center;
   justify-content: center;
-  background-color: $grey;
-  background:linear-gradient(
-    rgba(0, 0, 0, 0.7), 
-    rgba(0, 0, 0, 0.7)
-  ), url("../../static/images/auditorium.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: #f5f2f2;
 
-
-  h1{
+  h1 {
     color: white;
     font-family: 'Prompt-Light';
     @media (max-width: $screen-xs-max) {
@@ -22,8 +14,63 @@
       text-align: center;
     }
   }
+  .logout-btn {
+    margin: 20px;
+    padding: 10px 40px;
+    background-color: transparent;
+    border-radius: 30em;
+    color: $red;
+    font-family: 'Prompt-Light';
+    border-color: $red;
+    border-width: 2px;
+    letter-spacing: 2px;
+    transition: 0.2s;
+    &:hover {
+      background-color: $red;
+      color: white;
+      font-family: 'Prompt';
+    }
+  }
+}
 
+.register-wait {
+  height: calc(100vh - 33px);
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
 
+  p {
+    font-family: 'CSPraJad-Bold';
+  }
+}
+
+.authenticating {
+  min-height: calc(100vh - 33px);
+  background-color: #f5f2f2;
+  padding-top: 40px;
+  p {
+    font-family: 'CSPraJad-Bold';
+    text-align: center;
+  }
+}
+
+.connect-to-facebook {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 33px);
+  width: 100%;
+  background-color: $dark-grey;
+  h1 {
+    color: white;
+    font-family: 'Prompt-Light';
+    @media (max-width: $screen-xs-max) {
+      font-size: 30px;
+      text-align: center;
+    }
+  }
   .login-btn {
     margin: 10px 0;
     background-color: $fb;
@@ -54,34 +101,5 @@
     p {
       color: white;
     }
-  }
-  .logout-btn {
-    margin: 20px;
-    padding: 10px 40px;
-    background-color: transparent;
-    border-radius: 30em;
-    color: $red;
-    font-family: 'Prompt-Light';
-    border-color: $red;
-    border-width: 2px;
-    letter-spacing: 2px;
-    transition: 0.2s;
-    &:hover {
-      background-color: $red;
-      color: white;
-      font-family: 'Prompt';
-    }
-  }
-}
-
-.register-wait {
-  height: calc(100vh - 36px);
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  justify-content: center;
-
-  p {
-    font-family: 'CSPraJad-Bold';
   }
 }

@@ -30,7 +30,6 @@ export const signOut = () => async dispatch => {
     .signOut()
     .then(() => {
       // Sign-out successful.
-      console.log('User Logged Out!');
       dispatch({
         type: 'LOGOUT',
         payload: null
@@ -52,7 +51,6 @@ const centerList = [
 ];
 
 export const register = ({ info, user }) => async dispatch => {
-  console.log({ info, user });
   const { prefix, schoolProvince } = info;
   const { uid } = user;
   const counterRef = db.collection('counter').doc('counter');
@@ -109,7 +107,7 @@ export const register = ({ info, user }) => async dispatch => {
         });
     })
     .catch(function(error) {
-      console.log('Transaction failed: ', error);
+      console.log(error);
     });
   // await counterRef.get().then(doc => {
   //   if (doc.exists) {

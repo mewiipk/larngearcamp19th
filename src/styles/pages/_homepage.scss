@@ -5,14 +5,11 @@
     align-items: center;
     padding-bottom: 60px;
     background-color: $grey;
-    background:linear-gradient(
-    rgba(0, 0, 0, 0.7), 
-    rgba(0, 0, 0, 0.7)
-    ), url("../../static/images/light.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+      url('../../static/images/light.jpg');
     background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
-
 
     h1 {
       padding-top: 100px;
@@ -259,10 +256,11 @@
 
 .register-container {
   background-color: white;
-  background:linear-gradient(
-    rgba(255, 255, 255, 0.85), 
-    rgba(255, 255, 255, 0.85)
-  ), url("../../static/images/applynow.jpg");
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.85),
+      rgba(255, 255, 255, 0.85)
+    ),
+    url('../../static/images/applynow.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -306,7 +304,7 @@
   min-height: 250px;
 
   h3 {
-    padding-top: 50px;
+    padding-top: 20px;
     font-family: 'Prompt';
     color: white;
     font-size: 20px;
