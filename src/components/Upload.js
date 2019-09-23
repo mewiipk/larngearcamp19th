@@ -23,7 +23,9 @@ function UploadPhase({ auth, finish }) {
     console.log(file);
     setIsUpload({ ...isUpload, registerFile: true });
     let uploadTask = storageRef
-      .child('registerFile/' + auth.code + '/' + file.name + '_' + auth.uid)
+      .child(
+        'registerFile/test/' + auth.code + '/' + file.name + '_' + auth.uid
+      )
       .put(file);
     await uploadTask
       .then(async snapshot => {
@@ -50,7 +52,9 @@ function UploadPhase({ auth, finish }) {
     console.log(file);
     setIsUpload({ ...isUpload, personalIDCard: true });
     let uploadTask = storageRef
-      .child('personalIDCard/' + auth.code + '/' + file.name + '_' + auth.uid)
+      .child(
+        'personalIDCard/test/' + auth.code + '/' + file.name + '_' + auth.uid
+      )
       .put(file);
     await uploadTask
       .then(async snapshot => {
@@ -78,7 +82,12 @@ function UploadPhase({ auth, finish }) {
     setIsUpload({ ...isUpload, studentIdentification: true });
     let uploadTask = storageRef
       .child(
-        'studentIdentification/' + auth.code + '/' + file.name + '_' + auth.uid
+        'studentIdentification/test/' +
+          auth.code +
+          '/' +
+          file.name +
+          '_' +
+          auth.uid
       )
       .put(file);
     await uploadTask
