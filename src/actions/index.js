@@ -136,12 +136,15 @@ export const register = ({ info, user }) => async dispatch => {
 };
 
 export const finish = user => async dispatch => {
-  const { uid } = user;
+  const { uid, code } = user;
   const userRef = db.collection('user').doc(uid);
-  userRef.update({ register_status: 2 }).then(() => {
+  const finishedUserRef = db.collection('finished_user').doc(code);
+  const finished_time = new Date();
+  await userRef.update({ register_status: 2, finished_time }).then(() => {
     dispatch({
       type: 'UPDATE',
-      payload: { ...user, register_status: 2 }
+      payload: { ...user, register_status: 2, finished_time }
     });
   });
+  await finishedUserRef.set({ ...user, register_status: 2, finished_time });
 };

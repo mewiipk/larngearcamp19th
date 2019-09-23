@@ -1,5 +1,4 @@
 .upload-phase-container {
-  
   background-color: #f5f2f2;
   width: 100vw;
   .file-upload {
@@ -25,7 +24,7 @@
     }
   }
 
-  h4{
+  h4 {
     padding-top: 50px;
     padding-bottom: 25px;
     font-size: 36px;
@@ -38,7 +37,7 @@
     }
   }
 
-  .register-info{
+  .register-info {
     margin: 2% 5%;
     padding: 45px;
     @media (max-width: $screen-xs-max) {
@@ -47,8 +46,8 @@
     background-color: white;
     box-shadow: 3px 3px 3px $light-grey;
 
-    .register-code{
-      span{
+    .register-code {
+      span {
         font-family: 'Prompt';
         color: $red;
         font-size: 18px;
@@ -66,174 +65,178 @@
       }
     }
 
-
-    .download-paper{
+    .download-paper {
       margin-top: 20px;
       @media (max-width: $screen-xs-max) {
         display: block;
         margin: auto;
       }
-      a{
-            // padding: 10px;
-            // background-color: white;
-            // border-width: 2px;
-            // border-color: $red;
-            // margin-left: 10px;
+      a {
+        // padding: 10px;
+        // background-color: white;
+        // border-width: 2px;
+        // border-color: $red;
+        // margin-left: 10px;
 
-              align-self: center;
-              margin-top: 50px;
-              padding: 10px 40px;
-              background-color: transparent;
-              border-radius: 30em;
-              width: 250px;
-              text-align: center;
-              color: $red;
-              font-family: 'Prompt-Light';
-              border-color: $red;
-              border-width: 2px;
-              letter-spacing: 2px;
-              transition: 0.2s;
-              &:hover , &:focus{
-                background-color: $red;
-                color: white;
-                font-family: 'Prompt';
-              }
-            }
-          }
-
-    }
-    
-
-    h6{
-      font-family: 'Prompt';
-      margin-top: 10px;
-      padding-top: 15px;
-      color: $dark-grey;
-      font-size: 20px;
-
-      span{
-        font-size: 14px;
+        align-self: center;
+        margin-top: 50px;
+        padding: 10px 40px;
+        background-color: transparent;
+        border-radius: 30em;
+        width: 250px;
+        text-align: center;
         color: $red;
         font-family: 'Prompt-Light';
+        border-color: $red;
+        border-width: 2px;
+        letter-spacing: 2px;
+        transition: 0.2s;
+        &:hover,
+        &:focus {
+          background-color: $red;
+          color: white;
+          font-family: 'Prompt';
+        }
       }
     }
-    p{
-      padding-left: 10px;
-      color: $grey;
-      font-family: 'CSPraJad';
-    }
-    .upload-status{
-      display: flex;
-      flex-flow: row;
-      margin: 20px 0px;
-
-      .upload-status-name{
-        padding-left: 20px;
-        color: $grey;
-        font-family: 'Prompt';
-      }
-
-      img{
-        width: 20px;
-        margin-left: 30px;
-      }
-    }
-
-
   }
 
-  .upload-requirement{
-    margin: 5%;
-    padding: 45px;
-    background-color: white;
-    box-shadow: 3px 3px 3px $light-grey;
+  h6 {
+    font-family: 'Prompt';
+    margin-top: 10px;
+    padding-top: 15px;
+    color: $dark-grey;
+    font-size: 20px;
 
-
-    h5{
-      font-family: 'Prompt';
-      padding-top: 15px;
-      padding-bottom: 10px;
-      color: $dark-grey;
-      font-size: 20px;
-    }
-
-    p{
-      padding-left: 10px;
-      color: $grey;
-      font-family: 'CSPraJad';
-      span{color: red}
-    }
-
-    .ps{
-      padding-left: 10px;
+    span {
+      font-size: 14px;
       color: $red;
-      font-family: 'CSPraJad';
+      font-family: 'Prompt-Light';
+    }
+  }
+  p {
+    padding-left: 10px;
+    color: $grey;
+    font-family: 'CSPraJad';
+  }
+  .upload-status {
+    display: flex;
+    flex-flow: row;
+    margin: 20px 0px;
+
+    .upload-status-name {
+      padding-left: 20px;
+      color: $grey;
+      font-family: 'Prompt';
     }
 
-    .upload-date{
-      text-align: center;
-      padding-top: 40px;
-      font-size: 16px;
-      font-family: 'Prompt-Medium';
-      color: $dark-grey;
+    img {
+      width: 20px;
+      margin-left: 30px;
     }
+  }
+}
 
-    .upload-part{
-      margin-top: 50px;
+.upload-requirement {
+  margin: 5%;
+  padding: 45px;
+  background-color: white;
+  box-shadow: 3px 3px 3px $light-grey;
 
-      .upload-piece{
-        margin: 20px 0px;
-      }
-
-      .head{
-        font-family: 'Prompt';
-        color: $grey;
-        font-size: 18px;
-        margin: 5px 0px;
-        @media (max-width: $screen-xs-max) {
-          font-size: 12px;
-        }
-      }
-
-      .detail{
-        font-family: 'CSPraJad-Bold';
-        font-size: 15px;
-        margin-left: 20px;
-        color: $red;
-      }
-
-      .file-upload{
-        width: 30%;
-        font-family: 'CSPraJad';
-        margin-left: 60px;
-        margin-top: 5px;
-        margin-bottom: 30px;
-      }
-
-      h5{
-        font-family: 'CSPraJad-Bold';
-        color: red;
-        text-align: center;
-
-        span{
-          text-decoration: underline;
-        }
-      }
-
-    }
-
-
+  h5 {
+    font-family: 'Prompt';
+    padding-top: 15px;
+    padding-bottom: 10px;
+    color: $dark-grey;
+    font-size: 20px;
   }
 
-.button-part{
-    display: flex;
-    flex-flow: column;
-    margin-bottom: 16px;
-    // @media (max-width: $screen-sm-max) {
-    //   flex-flow: column;
-    // }
-    align-items: center;
+  p {
+    padding-left: 10px;
+    color: $grey;
+    font-family: 'CSPraJad';
+    span {
+      color: red;
+    }
+  }
+
+  .ps {
+    padding-left: 10px;
+    color: $red;
+    font-family: 'CSPraJad';
+  }
+
+  .upload-date {
+    text-align: center;
+    padding-top: 40px;
+    font-size: 16px;
+    font-family: 'Prompt-Medium';
+    color: $dark-grey;
+  }
+
+  .upload-part {
+    margin-top: 50px;
+
+    .upload-piece {
+      margin: 20px 0px;
+    }
+
+    .head {
+      font-family: 'Prompt';
+      color: $grey;
+      font-size: 18px;
+      margin: 5px 0px;
+      @media (max-width: $screen-xs-max) {
+        font-size: 12px;
+      }
+    }
+
+    .detail {
+      font-family: 'CSPraJad-Bold';
+      font-size: 15px;
+      margin-left: 20px;
+      color: $red;
+    }
+
+    .file-upload {
+      width: 30%;
+      font-family: 'CSPraJad';
+      margin-left: 60px;
+      margin-top: 5px;
+      margin-bottom: 30px;
+    }
+
+    h5 {
+      font-family: 'CSPraJad-Bold';
+      color: red;
+      text-align: center;
+
+      span {
+        text-decoration: underline;
+      }
+    }
+  }
 }
+
+.button-part {
+  display: flex;
+  flex-flow: column;
+  margin-bottom: 16px;
+  // @media (max-width: $screen-sm-max) {
+  //   flex-flow: column;
+  // }
+  align-items: center;
+
+  .register-btn:disabled,
+  .register-btn[disabled] {
+    opacity: 0.8;
+    cursor: not-allowed;
+    &:hover {
+      background-color: $red;
+      color: white;
+      font-family: 'Montserrat';
+    }
+  }
 
   .register-btn {
     margin-top: 20px;
@@ -252,5 +255,13 @@
       color: $red;
       font-family: 'Montserrat-SemiBold';
     }
-  
+    &.confirm {
+      opacity: 0.8;
+      &:hover {
+        background-color: $red;
+        color: white;
+        font-family: 'Montserrat';
+      }
+    }
+  }
 }
