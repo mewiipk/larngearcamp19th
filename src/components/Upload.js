@@ -148,7 +148,7 @@ function UploadPhase({ auth, finish }) {
 
   const onFinish = async () => {
     setLoading(true);
-    await finish(auth);
+    await finish(auth, upload);
     setLoading(false);
   };
   return (

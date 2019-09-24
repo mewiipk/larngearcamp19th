@@ -135,7 +135,7 @@ export const register = ({ info, user }) => async dispatch => {
   // });
 };
 
-export const finish = user => async dispatch => {
+export const finish = (user, upload) => async dispatch => {
   const { uid, code } = user;
   const userRef = db.collection('user').doc(uid);
   const finishedUserRef = db.collection('finished_user').doc(code);
@@ -146,5 +146,10 @@ export const finish = user => async dispatch => {
       payload: { ...user, register_status: 2, finished_time }
     });
   });
-  await finishedUserRef.set({ ...user, register_status: 2, finished_time });
+  await finishedUserRef.set({
+    ...user,
+    ...upload,
+    register_status: 2,
+    finished_time
+  });
 };
